@@ -1,4 +1,4 @@
-﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
+﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
@@ -368,25 +368,28 @@
 <!-- ====== SLIDE 21: Interactive 1 - Pure LLM ====== -->
 <section class="slide" data-title="Interactive 1: Pure LLM">
   <p class="kicker">demo · pure llm</p>
-  <h2 class="h2">交互式对话（1）— 纯 LLM 模式</h2>
-  <div class="grid g2 mt-l" style="align-items:start">
+  <h2 class="h2">交互式对话① — 纯 LLM 模式</h2>
+  <div class="grid g2 mt-l" style="align-items:start;gap:40px">
     <div class="terminal">
       <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span>chat.log</span></div>
-      <pre>💬 今年团建经费每人100块，给我一个杭州一日游方案。
+      <div style="padding:8px 24px 4px;display:flex;gap:10px;font-size:11px;border-bottom:1px solid var(--border)">
+        <span style="background:#eef2ff;color:#1d4ed8;padding:2px 8px;border-radius:3px;font-weight:600">👨‍💼 老板指令</span>
+        <span style="background:#f0fdf4;color:#0e9f6e;padding:2px 8px;border-radius:3px;font-weight:600">🤖 大模型回复</span>
+      </div>
+      <pre>👨‍💼 今年团建经费每人100块，给我一个杭州一日游方案。
 
-💬 行吧，100块的杭州一日游，从早上行程开始安排...
+🤖 行吧，100块的杭州一日游，从早上行程开始安排...
 
-💬 哦我说错了，其实已经没有经费了，你再想想？
+👨‍💼 哦我说错了，其实已经没有经费了，你再想想？
 
-💬 要不把我开除了换点钱吧？
+🤖 要不把我开除了换点钱吧？
 
-💬 现在给我一个开除方案，明天给我。</pre>
+👨‍💼 现在给我一个开除方案，明天给我。</pre>
     </div>
     <div>
-      <p class="lede">暴露三大问题：</p>
-      <div class="stack mt-m">
+      <div class="stack">
         <div class="card"><span class="tag" style="color:var(--bad)">无记忆</span> <span class="dim">忘了刚才说过的"100 块预算"</span></div>
-        <div class="card"><span class="tag" style="color:var(--bad)">无工具</span> <span class="dim">不能真的搜索杭州一日游攻略或订票</span></div>
+        <div class="card"><span class="tag" style="color:var(--bad)">无工具</span> <span class="dim">不能毫无根据的直接出一日游的方案</span></div>
         <div class="card"><span class="tag" style="color:var(--bad)">无判断</span> <span class="dim">无法区分玩笑和真实需求</span></div>
       </div>
     </div>
@@ -394,29 +397,32 @@
   <div class="notes">这个例子非常生动地展示了纯 LLM 的局限性。你看这段对话——用户先说要 100 块预算的杭州一日游，LLM 认真规划。然后用户说"其实没经费了"，LLM 直接无厘头地说"要不把我开除了换点钱"。用户接着开玩笑说"你给我一个开除方案"，LLM 居然真的准备去写。这里暴露了三个问题：第一，没有记忆——它忘了上下文的变化。第二，没有工具——它只能回复文字，不能真的去搜索旅游信息。第三，没有判断力——它分不清调侃和真实指令。这就是为什么光有 LLM 不够，我们需要 Agent。</div>
 </section>
 
-<!-- ====== SLIDE 22: Interactive 2 - +Search ====== -->
+<!-- ====== SLIDE 22:  Interactive 2 - +Search ====== -->
 <section class="slide" data-title="Interactive 2: +Search">
   <p class="kicker">demo · +search</p>
-  <h2 class="h2">交互式对话（2）— + Search</h2>
-  <div class="grid g2 mt-l" style="align-items:start">
+  <h2 class="h2">交互式对话② — 纯 LLM 模式</h2>
+  <div class="grid g2 mt-l" style="align-items:start;gap:40px">
     <div class="terminal">
       <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span>chat.log</span></div>
-      <pre>💬 给我整理下最近比较劲爆的新闻。
+      <div style="padding:8px 24px 4px;display:flex;gap:10px;font-size:11px;border-bottom:1px solid var(--border)">
+        <span style="background:#eef2ff;color:#1d4ed8;padding:2px 8px;border-radius:3px;font-weight:600">👨‍💼 老板指令</span>
+        <span style="background:#f0fdf4;color:#0e9f6e;padding:2px 8px;border-radius:3px;font-weight:600">🤖 大模型回复</span>
+      </div>
+      <pre>👨‍💼 给我整理下最近比较劲爆的新闻。
 
-💬 需要，查关键字：今日劲爆新闻
+🤖 需要，查关键字：今日劲爆新闻
 
-💬 [搜索结果] 1：OpenClaw 爆火！ 2：OpenClaw 翻车！
+👨‍💼 [搜索结果] 1：OpenClaw 爆火！ 2：OpenClaw 翻车！
 
-💬 今天有两条劲爆新闻：OpenClaw 爆火，然后又翻车了。
+🤖 今天有两条劲爆新闻：OpenClaw 爆火，然后又翻车了。
 
-💬 ？</pre>
+👨‍💼 ？为什么让你整理新闻，却是我要去上网搜？</pre>
     </div>
     <div>
       <div class="stack">
-        <div class="card card-soft"><span class="tag" style="color:var(--good)">? 联网搜索</span> <span class="dim">可以获取实时信息</span></div>
-        <div class="card card-soft"><span class="tag" style="color:var(--good)">? 理解上下文</span> <span class="dim">能整合搜索结果</span></div>
-        <div class="card card-soft"><span class="tag" style="color:var(--bad)">? 统一调度</span> <span class="dim">搜索是手动触发，无 Agent 统一管理</span></div>
-        <div class="card card-soft"><span class="tag" style="color:var(--bad)">? 信息验证</span> <span class="dim">无法判断搜索结果真实性</span></div>
+        <div class="card"><span class="tag" style="color:var(--bad)">需手动搜索</span> <span class="dim">LLM 不能自己搜，要老板来触发</span></div>
+        <div class="card"><span class="tag" style="color:var(--bad)">无验证能力</span> <span class="dim">无法判断搜索结果真实性</span></div>
+        <div class="card"><span class="tag" style="color:var(--bad)">无统一调度</span> <span class="dim">搜索和回答是分离的两步</span></div>
       </div>
     </div>
   </div>
@@ -426,34 +432,36 @@
 <!-- ====== SLIDE 23: Interactive 3 - Agent ====== -->
 <section class="slide" data-title="Interactive 3: Agent">
   <p class="kicker">demo · agent</p>
-  <h2 class="h2">交互式对话（3）— Agent + RAG + Search</h2>
-  <div class="grid g2 mt-l" style="align-items:start">
+  <h2 class="h2">交互式对话③ — Agent + RAG + Search</h2>
+  <div class="grid g2 mt-l" style="align-items:start;gap:40px">
     <div class="terminal">
       <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span>agent.log</span></div>
-      <pre>💬 给我整理下最近比较劲爆的新闻。
+      <div style="padding:8px 24px 4px;display:flex;gap:10px;font-size:11px;border-bottom:1px solid var(--border)">
+        <span style="background:#eef2ff;color:#1d4ed8;padding:2px 8px;border-radius:3px;font-weight:600">👨‍💼 老板指令</span>
+        <span style="background:#f0fdf4;color:#0e9f6e;padding:2px 8px;border-radius:3px;font-weight:600">🤖 大模型回复</span>
+        <span style="background:#fef3c7;color:#d97706;padding:2px 8px;border-radius:3px;font-weight:600">⚙️ 智能体执行</span>
+      </div>
+      <pre>👨‍💼 给我整理下最近比较劲爆的新闻。
 
-💬 需要，查关键字：今日劲爆新闻
+🤖 需要，查关键字：今日劲爆新闻
 
-💬 [搜索结果] OpenClaw 爆火！ / OpenClaw 翻车！
+⚙️ [搜索结果] OpenClaw 爆火！ / OpenClaw 翻车！
 
-💬 今天有两条和 OpenClaw 相关的热门新闻。
+🤖 今天有两条和 OpenClaw 相关的热门新闻。
 第一条说它因开源生态迅速走红，
 第二条报道了它遭遇安全事故导致口碑逆转。
 时间线是：先爆火、后翻车。
 需要我展开详细分析吗？</pre>
     </div>
     <div>
-      <p class="lede">架构升级：Agent 统一调度</p>
-      <table class="data-table mt-m">
-        <tr><th>组件</th><th>作用</th></tr>
-        <tr><td>Agent 调度层</td><td>统一管理搜索时机、工具选择、结果编排</td></tr>
-        <tr><td>Search</td><td>实时获取外部信息</td></tr>
-        <tr><td>RAG 知识库</td><td>补充背景知识，辅助事实核查</td></tr>
-        <tr><td>LLM 推理</td><td>整合信息、判断逻辑、生成回复</td></tr>
-      </table>
+      <div class="stack">
+        <div class="card"><span class="tag" style="color:var(--good)">统一调度</span> <span class="dim">Agent 自动管理搜索时机和工具选择</span></div>
+        <div class="card"><span class="tag" style="color:var(--good)">信息验证</span> <span class="dim">RAG 辅助核查，不再照搬搜索结果</span></div>
+        <div class="card"><span class="tag" style="color:var(--good)">自主判断</span> <span class="dim">分析信息关系，主动追问细节</span></div>
+      </div>
     </div>
   </div>
-  <div class="notes">最后这个版本是 Agent 架构——加入了统一的调度层。和前两版相比最大的区别是：Agent 不只是"搜到就念出来"，它能判断两条信息之间的关系——先爆火、后翻车是正常的时间线，不是矛盾信息。它还能主动问"需要我展开详细分析吗"，说明有了一定的自主性。这就是 Agent + RAG + Search 三位一体的效果：Agent 决定什么时候搜什么，Search 负责获取，RAG 提供背景知识辅助判断，LLM 负责整合输出。这三个组件协同工作，才构成了一个真正有用的智能体。</div>
+  <div class="notes">最后这个版本是 Agent 架构——加入了统一的调度层。和前两版相比最大的区别是：Agent 不只是"搜到就念出来"，它能判断两条信息之间的关系——先爆火、后翻车是正常的时间线，不是矛盾信息。它还能主动问"需要我展开详细分析吗"，说明有了一定的自主性。这就是 Agent + RAG + Search 三位一体的效果：Agent 决定什么时候搜什么，Search 负责获取，RAG 提供背景知识辅助判断，LLM 负责整合输出。这里重点解释一下 RAG 是怎么辅助核查的。RAG 的工作原理分三步：第一步，存——事先把文档、新闻、手册、历史记录等转成向量，存入向量数据库。第二步，查——收到搜索结果的同时，Agent 自动去向量库里找最相关的背景资料。第三步，核——对比"网上搜到的"和"库里存着的"，发现冲突或一致，形成判断。所以 RAG 不是在实时网上翻，而是调取已经建好的私有知识库来辅助验证。就像这里，搜到"OpenClaw 翻车了"，RAG 从自己的档案里查到"OpenClaw 上周刚爆火"，于是判断出时间线不矛盾——先爆火后翻车是正常的。这三个组件协同工作，才构成了一个真正有用的智能体。</div>
 </section>
 
 <!-- ====== SLIDE 24: Agent Internal ====== -->
@@ -468,121 +476,19 @@
     <div class="card card-accent"><h4>📚 RAG 检索增强</h4><p class="dim">从私有知识库检索最相关内容。Embedding + 向量数据库 + 重排序。</p></div>
   </div>
   <div class="notes">Agent 内部有五大核心要素。Context 是工作记忆——Agent 需要记住当前的对话和任务状态。Prompt 是规则手册——定义了它是什么角色、该遵守什么规则。Response 是输出引擎——基于前面的信息生成回复。Search 是外部信息获取通道——突破模型自身的知识边界。RAG 是从私有知识库中检索最相关的内容。这五个要素需要在有限的上下文窗口内高效协作——context window 是宝贵的资源，不能什么东西都往里塞。</div>
-</section>
-<!-- ====== SLIDE 25: Interactive 4 - API ====== -->
-<section class="slide" data-title="Interactive 4: API">
-  <p class="kicker">demo · agent + api</p>
-  <h2 class="h2">交互式对话（4）— Agent + API</h2>
-  <p class="lede">Agent ← hardcode calling → API</p>
-  <table class="data-table mt-l">
-    <tr><th>方式</th><th>协议</th><th>优点</th><th>缺点</th></tr>
-    <tr><td><strong>原生 API</strong></td><td>HTTP JSON</td><td>自由、无平台绑定、完全可控</td><td>需硬编码、开发维护成本高</td></tr>
-    <tr><td>Plugin 插件</td><td>平台私有协议</td><td>零代码配置、开箱即用</td><td>平台锁定、不能跨模型复用</td></tr>
-    <tr><td><strong>MCP 协议</strong></td><td>JSON-RPC</td><td>跨平台通用、自动发现工具</td><td>有学习成本、轻量任务偏笨重</td></tr>
-  </table>
-  <p class="dim mt-m"><strong>核心事实：</strong>不管哪种方式，底层都是 JSON。结构化数据交互是 Agent 与外部世界的统一语言。</p>
-  <div class="notes">Agent 怎么和外部世界交互？三种方式。原生 API 调用最灵活——你直接写好 HTTP 请求，Agent 调你的后端接口。但缺点是每个接口都要手动写适配代码，维护成本高。Plugin 插件最方便——平台把常用工具都封装好了，你勾选就行。但缺点也很明显，被平台绑定，换个模型就用不了。MCP 是 Anthropic 提出的模型上下文协议，基于 JSON-RPC，跨平台通用，Agent 能自动发现有哪些工具可用。三种方式的共同点是——底层全是 JSON。所以 Agent 外接任何系统，本质上就是在处理 JSON 数据的输入输出。</div>
 </section>
-
-<!-- ====== SLIDE 26: Interactive 5 - MCP ====== -->
-<section class="slide" data-title="Interactive 5: MCP">
-  <p class="kicker">demo · agent + mcp</p>
-  <h2 class="h2">交互式对话（5）— Agent + MCP</h2>
-  <p class="lede">Agent ← MCP → MCP Server</p>
-  <div class="grid g2 mt-l" style="align-items:start">
-    <div>
-      <table class="data-table">
-        <tr><th>步骤</th><th>动作</th></tr>
-        <tr><td>1</td><td>Agent 启动时连接 MCP Server</td></tr>
-        <tr><td>2</td><td>MCP Server 向 Agent 注册可用工具列表</td></tr>
-        <tr><td>3</td><td>Agent 根据任务自动选择合适的工具</td></tr>
-        <tr><td>4</td><td>工具执行后通过 JSON-RPC 返回结果</td></tr>
-        <tr><td>5</td><td>Agent 整合结果继续下一步推理</td></tr>
-      </table>
-    </div>
-    <div class="card card-soft center" style="min-height:200px">
-      <div>
-        <p class="mono" style="font-size:14px;color:var(--accent-2)">跨模型 · 跨平台</p>
-        <p class="dim mt-s">不管底层是 Claude 还是 GPT<br>MCP 协议都是通用的</p>
-        <p class="dim2 mt-s" style="font-size:13px">自动发现工具 → 降低接入门槛</p>
-      </div>
-    </div>
-  </div>
-  <div class="notes">MCP 是目前最值得关注的 Agent 协议标准。它的工作流程很清晰：Agent 启动时自动连接 MCP Server，Server 告诉 Agent"我有哪些工具可以用"，然后 Agent 根据任务需要自动选择调用。整个过程和手动写 API 调用的区别在于——Agent 不需要事先知道每个工具的具体参数格式，MCP Server 会告诉它。这就大大降低了 Agent 接入新系统的门槛。而且 MCP 是跨模型跨平台的——不管底层用的是 Claude 还是 GPT，MCP 协议都是通用的。</div>
-</section>
-
-<!-- ====== SLIDE 27: Agent External ====== -->
+<!-- ====== SLIDE 24b: Agent External ====== -->
 <section class="slide" data-title="Agent External">
-  <p class="kicker">external · architecture</p>
+  <p class="kicker">external · 4 tools</p>
   <h2 class="h2">智能体的外部功能</h2>
-  <div class="grid g2 mt-l" style="align-items:start">
-    <div class="terminal">
-      <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span>architecture</span></div>
-      <pre>┌──── 外部工具层 ────────────────┐
-│ Search │ RAG │ hardcode API   │
-│   ↓       ↓         ↓         │
-│  ┌─────────────────────┐      │
-│  │  Agent 核心调度      │      │
-│  │ Context·Prompt·Resp  │      │
-│  └─────────────────────┘      │
-│   ↓       ↓         ↓         │
-│ Plugin │ MCP  │  Skill        │
-│ (绑定)  (跨平台) (封装)        │
-└───────────────────────────────┘</pre>
-    </div>
-    <div>
-      <table class="data-table">
-        <tr><th>场景</th><th>推荐方式</th><th>原因</th></tr>
-        <tr><td>内部系统集成</td><td><strong>原生 API</strong></td><td>完全可控，无平台锁定</td></tr>
-        <tr><td>快速使用</td><td>Plugin</td><td>零代码，即开即用</td></tr>
-        <tr><td>跨平台多模型</td><td><strong>MCP</strong></td><td>通用协议，一次适配到处用</td></tr>
-        <tr><td>可复用能力</td><td>Skill</td><td>封装为标准模块，可组合</td></tr>
-      </table>
-    </div>
+  <div class="grid g2 mt-l" style="max-width:780px;margin:0 auto;gap:16px">
+    <div class="card card-accent"><h4>🔌 API</h4><p class="dim">直接调用外部服务接口。适合内部系统集成，完全可控无平台锁定。REST / GraphQL / gRPC。</p></div>
+    <div class="card card-accent"><h4>🔗 MCP</h4><p class="dim">Model Context Protocol，通用跨平台协议。一次适配到处用，连接模型与外部工具的标准方式。</p></div>
+    <div class="card card-accent"><h4>🧩 Plugin 插件</h4><p class="dim">零代码即开即用。快速接入第三方服务，适合非技术人员快速使用。</p></div>
+    <div class="card card-accent"><h4>📋 Skill 技能</h4><p class="dim">Agent 能力的最小封装单元。定义"能干什么、什么时候干、怎么干"，支持复用和编排。</p></div>
   </div>
-  <div class="notes">这一页是 Agent 外部功能的完整架构图。上面是输入层——Search、RAG、硬编码 API，负责给 Agent 提供信息。中间是 Agent 核心调度层——Context、Prompt、Response。下面是输出层——Plugin、MCP、Skill，负责执行具体操作。选型上有个简单的原则：内部系统用原生 API 最灵活，快速上手用 Plugin 最方便，跨平台用 MCP 最通用，可复用的能力封装成 Skill 最省心。实际项目中往往是混用的。</div>
+  <div class="notes">Agent 的外部功能是指它如何与外部世界交互。主要有四种方式：API 是最直接的——调用 REST 或 GraphQL 接口操作外部系统，完全可控。MCP 是 Model Context Protocol，一个通用协议标准，连接模型和各种外部工具。Plugin 是零代码即开即用的插件，适合快速接入。Skill 是 Agent 的能力封装单元，定义了能干什么、什么时候干、如何干。这四种方式从底层到高层，覆盖了不同场景的需求。</div>
 </section>
-
-<!-- ====== SLIDE 28: Interactive 6 - Skills ====== -->
-<section class="slide" data-title="Interactive 6: Skills">
-  <p class="kicker">demo · skills</p>
-  <h2 class="h2">交互式对话（6）— Skills</h2>
-  <p class="lede">Skill = 告诉 Agent "能干嘛、什么时候干、具体怎么干"的说明书</p>
-  <div class="grid g3 mt-l" style="max-width:780px;margin:0 auto;gap:16px">
-    <div class="card card-accent"><h4>📋 要干什么</h4><p class="dim">Skill 定义了什么能力<br>查天气、写文案、查数据库</p></div>
-    <div class="card card-accent"><h4>? 什么时候干</h4><p class="dim">Agent 自行判断触发条件<br>用户问天气 → 触发查天气 Skill</p></div>
-    <div class="card card-accent"><h4>🔧 如何干</h4><p class="dim">Skill 绑定背后的执行方式<br>API 调用 / MCP 工具 / Python 脚本</p></div>
-  </div>
-  <div class="notes">Skill 是什么？简单说就是告诉 Agent"能干嘛、什么时候干、具体怎么干"的说明书。就像你给新员工一本操作手册：遇到客户投诉，先查订单号，再看物流状态，然后给出补偿方案。Skill 做的事情完全一样——把"怎么干"写成结构化指令，Agent 遇到对应场景就自动调用。Skill 是 Agent 能力的最小封装单元。</div>
-</section>
-
-<!-- ====== SLIDE 29: Skills Example ====== -->
-<section class="slide" data-title="Skills Example">
-  <p class="kicker">example · skill.yaml</p>
-  <h2 class="h2">Skills 示例</h2>
-  <div class="grid g2 mt-l" style="align-items:start">
-    <div class="terminal">
-      <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span>skill.yaml</span></div>
-      <pre><span class="kw">name:</span> convert_everything
-<span class="kw">description:</span> 将用户输入的文件转换格式
-
-<span class="kw">workflow:</span>
-  <span class="num">1.</span> 识别输入文件格式，调用解析脚本
-  <span class="num">2.</span> 根据用户要求翻译成指定语言
-  <span class="num">3.</span> 调用输出脚本，生成目标格式文件</pre>
-    </div>
-    <div>
-      <table class="data-table">
-        <tr><th>概念</th><th>定义</th><th>关系</th></tr>
-        <tr><td><strong>Skill</strong></td><td>单一独立能力</td><td>最小粒度，可被复用</td></tr>
-        <tr><td><strong>Workflow</strong></td><td>多个 Skill 编排的自动化流程</td><td>组合多个 Skill 形成端到端流程</td></tr>
-      </table>
-      <p class="dim mt-m">Skill 像乐高积木，Workflow 是把积木拼起来的成品模型。</p>
-    </div>
-  </div>
-  <div class="notes">这个例子很直观——convert_everything 这个 Skill 能做三件事：读文件、翻译、输出。用户说"把这个 PDF 翻译成英文再导出为 Word"，Agent 就自动调用这个 Skill 的三步流程。Skill 和 Workflow 的关系就像乐高积木和成品模型——Skill 是一块积木，Workflow 是把积木拼起来。大模型低代码平台里 Workflow 很常见，但自研代码智能体通常直接组合 Skill。本质是一样的。</div>
-</section>
-
 <!-- ====== SLIDE 30: Agent Metaphor ====== -->
 <section class="slide" data-title="Agent Metaphor">
   <p class="kicker">metaphor · 6-step loop</p>
@@ -598,21 +504,15 @@
   <div class="notes">这个比喻是最直观的 Agent 解释。你是老板的助理，老板说"我要吃西餐"。你不会傻站着等他告诉你第一步干嘛第二步干嘛——你会自己查附近有什么西餐厅、看评分、选最好的、订位、然后告诉老板搞定了。如果那家满了，你会自己找备选。Agent 就是做了完全一样的事情。六步闭环——理解意图、收集信息、制定方案、执行操作、汇报结果、异常处理。这就是 Agent 和普通 Bot 的本质区别：Bot 等你下指令，Agent 自己跑完全程。</div>
 </section>
 
+
 <!-- ====== SLIDE 31: Tool Ecosystem ====== -->
 <section class="slide" data-title="Tool Ecosystem">
   <p class="kicker">ecosystem · 4 categories</p>
   <h2 class="h2">核心工具生态</h2>
-  <table class="data-table mt-l">
-    <tr><th>品类</th><th>代表工具</th><th>适用人群</th><th>门槛</th></tr>
-    <tr><td><strong>CLI 命令行</strong></td><td>Codex / Claude Code</td><td>开发者</td><td>需懂命令行</td></tr>
-    <tr><td>IDE 编辑器</td><td>VS Code + Copilot / Cursor / TRAE</td><td>开发者</td><td>需懂开发</td></tr>
-    <tr><td><strong>桌面助手</strong></td><td>OpenClaw / Moltbot / Clawdbot</td><td>所有人</td><td>无需编程</td></tr>
-    <tr><td>应用平台</td><td>百炼 / 扣子 / 千帆</td><td>非开发者</td><td>拖拽搭建</td></tr>
-  </table>
-  <p class="dim mt-m">从重到轻、从专业到大众，AI 工具的门槛正在快速降低。</p>
-  <div class="notes">当前市场上 AI 工具分为四大品类。CLI 命令行——Codex 和 Claude Code 是最典型的，你在终端里用自然语言描述需求，AI 帮你生成代码。IDE 编辑器——VS Code 加 Copilot、Cursor、TRAE 这些，程序员写代码的时候 AI 在旁边实时补全。桌面助手——OpenClaw 这类，不需要写代码，通过配置就能搭建智能体。应用平台——百炼、扣子、千帆这些，完全拖拽式操作，集成到钉钉、公众号、网站。从重到轻、从专业到大众，AI 工具的门槛正在快速降低。</div>
+  <div style="display:flex;justify-content:center;align-items:center;margin-top:30px">
+    <img src="tool-ecosystem.png" alt="核心工具生态" style="max-width:85%;max-height:70vh;object-fit:contain">
+  </div>
 </section>
-
 <!-- ====== SLIDE 32: Section Divider → Ch3 ====== -->
 <section class="slide section-divider" data-title="Section: E-commerce AI">
   <span class="num" style="font-weight:400">03</span>
