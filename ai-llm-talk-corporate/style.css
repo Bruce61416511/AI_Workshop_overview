@@ -325,3 +325,10 @@
   padding: 28px 30px;
   background: #ffffff;
 }
+/* 非激活页折叠 details */
+.slide:not(.is-active) details {
+  pointer-events: none;
+}
+.slide:not(.is-active) details[open] > :not(summary) {
+  display: none;
+}
