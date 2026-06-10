@@ -1,4 +1,4 @@
-﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
+﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
@@ -188,25 +188,13 @@
 <section class="slide" data-title="AI & LLM Relationship">
   <p class="kicker">relationship</p>
   <h2 class="h2">AI 和 LLM 的关系</h2>
-  <div class="grid g2 mt-l" style="align-items:start">
-    <div>
-      <p class="lede"><strong>LLM 属于 AI，但 AI 远不止 LLM。</strong></p>
-      <div class="stack mt-m">
-        <div class="tag">LLM = Large Language Model 大语言模型</div>
-        <div class="tag">AI = 计算机视觉 + 语音识别 + 机器人 + 自动驾驶 + LLM + ...</div>
-      </div>
-      <p class="dim mt-m">LLM 是 AI 里负责"语言与思考"的核心大脑。</p>
+  <div class="grid g2 mt-l" style="grid-template-columns:1fr 1.2fr;align-items:center;gap:48px">
+    <div style="text-align:center">
+      <p class="lede" style="font-size:28px;line-height:1.6"><strong>LLM 属于 AI，<br>但 AI 远不止 LLM。</strong></p>
+      <p class="dim mt-m" style="font-size:16px">LLM 是 AI 里负责<br>"语言与思考"的核心大脑</p>
     </div>
-    <div class="terminal">
-      <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span>AI ? LLM</span></div>
-      <pre>┌────────── AI 人工智能 ──────────┐
-│ 视觉 · 语音 · 机器人 · 自动驾驶  │
-│         ┌── LLM ──┐            │
-│         │ 语言理解  │            │
-│         │ 文本生成  │            │
-│         │ 逻辑推理  │            │
-│         └─────────┘            │
-└────────────────────────────────┘</pre>
+    <div>
+      <img src="assets/ai-llm-relation.png" alt="AI and LLM" style="display:block;width:100%;height:auto">
     </div>
   </div>
   <div class="notes">在进入 LLM 之前，先厘清一个基本概念：LLM 是什么、它和 AI 是什么关系。LLM 是 Large Language Model 的缩写——大语言模型。它是 AI 这个大家族里负责"语言和思考"的核心大脑。但 AI 远不止 LLM。AI 还包括计算机视觉——让机器看懂图片；语音识别——让机器听懂人话；机器人——让机器动手操作；自动驾驶——让汽车自己开。LLM 是当前最火的分支，但它只是 AI 的一部分。理解这个关系很重要，这样你就不会把 ChatGPT 等同于整个 AI。</div>
@@ -217,18 +205,45 @@
   <p class="kicker">training · 5 steps</p>
   <h2 class="h2">LLM 概率推导式</h2>
   <p class="lede">LLM 本质是一个超大规模的<strong>"下一个词预测器"</strong>。</p>
-  <div class="grid g3 mt-l" style="max-width:780px;margin:0 auto;gap:16px">
-    <div class="card"><span class="tag tag-accent">① 投喂数据</span><p class="dim mt-s">海量文本作为学习素材<br>互联网、书籍、论文、代码</p></div>
-    <div class="card"><span class="tag tag-accent">② 预判训练</span><p class="dim mt-s">强制逐字预测下一个词<br>"今天天气真___" → "好"</p></div>
-    <div class="card"><span class="tag tag-accent">③ 对比纠错</span><p class="dim mt-s">与标准答案对比计算误差<br>预测"差"→扣分；"好"→加分</p></div>
-    <div class="card"><span class="tag tag-accent">④ 反向调参</span><p class="dim mt-s">误差回传调整数百亿参数<br>强化正确关联，削弱错误</p></div>
-    <div class="card card-accent"><span class="tag">⑤ 亿万轮迭代</span><p class="dim mt-s">重复以上四步直至收敛<br>慢慢摸清语言规律与常识</p></div>
+  <img src="assets/llm-training.png" alt="LLM Training" style="display:block;max-width:80%;height:auto;margin:24px auto 0">
+  <div class="notes">大语言模型到底是怎么训练出来的？很多人觉得神秘，其实就是五步循环。第一步，投喂数据——把互联网上能找到的所有文本全部丢给模型当教材。第二步，预判训练——给模型半句话让它猜下一个词。比如"今天天气真"，模型要猜"好"还是"差"。第三步，对比纠错——猜对了加分，猜错了扣分。第四步，反向调参——误差回传调整几百亿个参数。第五步，亿万轮迭代——循环几十亿次慢慢摸清语言规律。所以 LLM 本质就是一个概率预测器——它的核心任务就是：给定上文，猜下一个最可能的词。为什么是一个字一个字推导？因为 GPT 采用自回归架构，每次只输出一个 token，然后把新词拼回上文再预测下一个，就像搭积木一块一块往上摞。概率链式法则决定了每一步都依赖前面所有内容。所以 LLM 不是"思考完再说"，而是边说边想——每出一个词都在重新审视前面说了什么、接下来该说什么。所谓"理解"和"思考"，其实是海量统计规律在起作用。</div>
+</section>
+
+
+<!-- ====== SLIDE 15b: Token & Embedding ====== -->
+<section class="slide" data-title="Token & Embedding">
+  <p class="kicker">how llm reads · token & embedding</p>
+  <h2 class="h2">LLM 如何"读懂"文字？</h2>
+  <div class="grid g2 mt-l" style="align-items:stretch;gap:36px">
+    <div>
+      <h4 class="h4" style="color:var(--accent-2)">🔤 Step 1：Tokenization 分词</h4>
+      <p class="dim mt-s">把文字切成一个个"词元"（Token），LLM 不认汉字，只认数字编号。</p>
+      <table class="data-table mt-m" style="font-size:14px">
+        <tr><th>输入</th><th>Token 化</th><th>编号</th></tr>
+        <tr><td>今天天气真好</td><td>["今天", "天气", "真", "好"]</td><td>[382, 1047, 425, 196]</td></tr>
+        <tr><td>I love AI</td><td>["I", " love", " AI"]</td><td>[40, 1842, 9552]</td></tr>
+      </table>
+      <p class="dim mt-s" style="font-size:13px">中文约 1-2 字/Token，英文约 0.75 词/Token</p>
+    </div>
+    <div>
+      <h4 class="h4" style="color:var(--accent-2)">🧮 Step 2：Embedding 向量化</h4>
+      <p class="dim mt-s">每个 Token 映射为一个高维向量（如 1536 维），语义相近的词向量距离也近。</p>
+      <div class="card card-soft mt-m" style="padding:18px 22px;height:calc(100% - 80px);display:flex;align-items:center">
+        <p class="mono" style="font-size:13px;line-height:2;color:var(--text-2)">
+          "国王" → [0.12, -0.34, 0.78, ...]<br>
+          "女王" → [0.15, -0.31, 0.82, ...] &nbsp;<span style="color:var(--good)">← 相近</span><br>
+          "苹果" → [-0.52, 0.61, 0.03, ...] &nbsp;<span style="color:var(--bad)">← 远离</span>
+        </p>
+      </div>
+      <p class="dim mt-s" style="font-size:13px">这样 LLM 就能"理解"语义关系：国王-男人+女人≈女王</p>
+    </div>
   </div>
-  <div class="notes">大语言模型到底是怎么训练出来的？很多人觉得神秘，其实就是五步循环。第一步，投喂数据——把互联网上能找到的所有文本，包括维基百科、书籍、论文、代码仓库、论坛帖子，全部丢给模型当教材。不是几百本书，是万亿级别的词。第二步，预判训练——给模型半句话让它猜下一个词。比如"今天天气真"，模型要猜"好"还是"差"。第三步，对比纠错——猜完之后对照标准答案。猜对了加分，猜错了扣分，算出误差。第四步，反向调参——这个误差会被送回模型内部，调整那几百亿个参数，把猜对的路径强化、猜错的削弱。这就是"学习"的本质。第五步，亿万轮迭代——以上四步循环几十亿次，模型慢慢就摸清了语言规律。所以 LLM 本质上就是一个超级精确的"猜词机器"。所谓"理解"和"思考"，其实是海量统计规律在起作用。</div>
+  <p class="dim mt-s" style="font-size:13px">Token 是 LLM 的"字母"，Embedding 是"含义"。两个步骤把人类语言变成数学世界里的坐标。</p>
+  <div class="notes">很多人觉得 LLM 很神秘，但它"读"文字的方式其实很机械。第一步 Tokenization：不管中文英文，先切成 Token——最小的语义单元。然后每个 Token 给一个数字编号。第二步 Embedding：把每个 Token 映射为一个高维向量，比如 1536 维的数组。关键在这——语义相近的词，向量距离也近。"国王"和"女王"的向量几乎重叠，"苹果"就远得多。这就是 LLM "理解"语义的本质：不是真的理解，而是数学上的相似度计算。理解了这个，后面讲 RAG 和向量数据库就顺了。</div>
 </section>
 
 <!-- ====== SLIDE 16: LLM Applications ====== -->
-<section class="slide" data-title="LLM Applications">
+<!-- ==ass="slide" data-title="LLM Applications">
   <p class="kicker">applications · 6 categories</p>
   <h2 class="h2">LLM 的基础应用</h2>
   <div class="grid g3 mt-l" style="max-width:780px;margin:0 auto;gap:16px">
@@ -246,31 +261,59 @@
 <section class="slide" data-title="Parameter Scale">
   <p class="kicker">scale · exponential</p>
   <h2 class="h2">LLM 参数规模演进</h2>
-  <table class="data-table mt-m" style="font-size:14px">
-    <tr><th>年份</th><th>代表模型</th><th>参数规模</th><th>阶段特点</th></tr>
-    <tr><td>2018</td><td>GPT-1 / BERT</td><td>~1 亿</td><td>预训练模型出现</td></tr>
-    <tr><td>2020</td><td>GPT-3</td><td><strong>1750 亿</strong></td><td>千亿级大模型诞生</td></tr>
-    <tr><td>2022</td><td>GPT-4</td><td><strong>~1.8 万亿</strong></td><td>万亿级，多模态出现</td></tr>
-    <tr><td>2024</td><td>Claude 3 / GPT-4o</td><td>千亿级</td><td>更高效、轻量化</td></tr>
-    <tr><td>2026</td><td>GPT-5 Ultra / Gemini 3</td><td><strong>8-10万亿 (MoE)</strong></td><td>稀疏架构，按需激活</td></tr>
+  <table class="data-table mt-m" style="font-size:13px">
+    <tr><th>年份</th><th>代表模型</th><th>参数规模</th><th>里程碑</th></tr>
+    <tr><td>2015</td><td>Word2Vec / LSTM</td><td>百万级</td><td>词向量 + 循环网络时代</td></tr>
+    <tr><td>2017</td><td>Transformer</td><td>—</td><td>Attention Is All You Need 架构革命</td></tr>
+    <tr><td>2018</td><td>GPT-1 / BERT</td><td>1.17 亿 / 3.4 亿</td><td>预训练范式确立</td></tr>
+    <tr><td>2019</td><td>GPT-2 / T5</td><td>15 亿 / 110 亿</td><td>规模化初现，生成能力飞跃</td></tr>
+    <tr><td>2020</td><td>GPT-3</td><td><strong>1750 亿</strong></td><td>千亿级大模型，涌现能力被发现</td></tr>
+    <tr><td>2021</td><td>GPT-3.5 / PaLM</td><td>1750 亿 / 5400 亿</td><td>指令微调 + RLHF 成熟</td></tr>
+    <tr><td>2022</td><td>ChatGPT / GPT-4</td><td><strong>~1.8 万亿 (MoE)</strong></td><td>万亿级，多模态，消费级爆发</td></tr>
+    <tr><td>2023</td><td>LLaMA 2 / Gemini 1.0</td><td>700 亿 / 千亿级</td><td>开源追赶，多模态融合</td></tr>
+    <tr><td>2024</td><td>GPT-4o / LLaMA 3</td><td>千亿级 / 4050 亿</td><td>轻量化 + 实时多模态</td></tr>
+    <tr><td>2025</td><td>DeepSeek-V3 / Qwen 2.5</td><td>671B (MoE) / 千亿级</td><td>MoE 普及，中国模型崛起</td></tr>
+    <tr><td>2026</td><td>GPT-5 / Gemini 3 / Qwen 3</td><td><strong>8-10 万亿 (MoE)</strong></td><td>稀疏架构，按需激活，Agent 原生</td></tr>
   </table>
-  <div class="grid g3 mt-l" style="max-width:780px;margin:0 auto;gap:16px">
-    <div class="card card-soft">
-      <p class="mono" style="font-size:12px;color:var(--text-3)">核心竞争 = 算力 + 能源</p>
-      <p class="dim">谁有更多 GPU 和更便宜的电力，谁就能训练更大的模型。</p>
+  
+  <div class="notes">这张表展示了 LLM 参数规模的指数级增长。2015 年还是百万参数级别，Word2Vec 和 LSTM 是当时的主流。2017 年 Transformer 架构的提出改变了整个方向。2018 年 GPT-1 和 BERT 确立了预训练范式。2020 年 GPT-3 达到 1750 亿参数——出现了"涌现能力"，模型突然学会了没被训练过的技能。2022 年 GPT-4 迈入万亿级，ChatGPT 两个月 1 亿用户引爆全球。2025 年 DeepSeek-V3 用 MoE 架构大幅降低成本，中国模型全面崛起。2026 年 GPT-5 达到 10 万亿参数——接近人脑复杂度。如果把一个参数比作一个神经元：GPT-3 相当于蜜蜂，GPT-4 相当于老鼠，GPT-5 接近人类了。现在的趋势是 MoE 稀疏架构——不是所有参数同时激活，按需调用，大幅提效。核心竞争就三个词：算力、能源、数据。</div>
+</section>
+
+
+<!-- ====== SLIDE 17b: Context Window ====== -->
+<section class="slide" data-title="Context Window">
+  <p class="kicker">context window · evolution</p>
+  <h2 class="h2">上下文窗口：LLM 的"视野"</h2>
+  <table class="data-table mt-l" style="font-size:14px">
+    <tr><th>年份</th><th>代表模型</th><th>上下文窗口</th><th>能装下</th></tr>
+    <tr><td>2018</td><td>GPT-1</td><td>512 tokens</td><td>一段话</td></tr>
+    <tr><td>2020</td><td>GPT-3</td><td>2K tokens</td><td>一篇短文</td></tr>
+    <tr><td>2022</td><td>GPT-3.5</td><td>4K tokens</td><td>一篇长文</td></tr>
+    <tr><td>2023</td><td>GPT-4 / Claude 2</td><td>32K / 100K</td><td>一本书的章节</td></tr>
+    <tr><td>2024</td><td>GPT-4 Turbo / Gemini 1.5</td><td><strong>128K / 1M</strong></td><td>整本书 / 几小时视频</td></tr>
+    <tr><td>2025</td><td>Gemini 2.0 / Claude 3.5</td><td><strong>2M / 200K</strong></td><td>代码仓库 / 多本书</td></tr>
+    <tr><td>2026</td><td>GPT-5 / Gemini 3</td><td><strong>10M+ (预测)</strong></td><td>企业全量知识库</td></tr>
+  </table>
+  <div class="grid g2 mt-l" style="gap:24px">
+    <div class="card card-accent" style="padding:18px 22px">
+      <h4>📐 为什么重要？</h4>
+      <p class="dim mt-s">窗口越大，LLM 一次能"看见"的信息越多。4K 窗口像通过钥匙孔看世界，1M 窗口像打开了整扇门。长上下文 = 更准的回答 + 更少的幻觉。</p>
     </div>
-    <div class="card card-soft">
-      <p class="mono" style="font-size:12px;color:var(--text-3)">趋势：MoE 稀疏架构</p>
-      <p class="dim">不是所有参数同时激活，按需调用，大幅提升效率。</p>
+    <div class="card card-soft" style="padding:18px 22px">
+      <h4>⚡ 代价是什么？</h4>
+      <p class="dim mt-s">注意力计算随窗口平方增长。1M 窗口需要巨大算力。MoE 稀疏架构和 Flash Attention 等技术正在解决这个问题。</p>
     </div>
   </div>
-  <div class="notes">这张表展示了 LLM 参数规模的指数级增长。2015 年还是几百万参数的小模型，到了 2020 年 GPT-3 就达到了 1750 亿参数——增长了几个数量级。2022 年 GPT-4 大约 1.8 万亿参数，2026 年最新的 GPT-5 Ultra 达到了 10 万亿参数。什么概念？如果把一个参数比作一个神经元，GPT-3 相当于一只蜜蜂的大脑，GPT-4 相当于一只老鼠，GPT-5 接近人类大脑的复杂度了。而且现在的趋势是用 MoE 稀疏架构——不是所有参数同时激活，而是按需调用，大幅提升效率。大模型竞争的核心其实就两个词：算力和能源。谁有更多的 GPU 和更便宜的电力，谁就能训练更大的模型。</div>
+  <div class="notes">参数规模之外，上下文窗口是 LLM 能力的第二个关键维度。什么是上下文窗口？就是 LLM 一次最多能"看到"多少个 Token。2018 年 GPT-1 只有 512 个 Token——相当于一段话。到了 2024 年 Gemini 1.5 达到 100 万 Token——相当于整本《三体》或者几小时的视频。2026 年预测能到千万级别，相当于整个企业的知识库一次塞进去。这意味着什么？意味着 LLM 不再需要"翻书"，它可以一次性"读完"你所有的资料再回答。窗口越大，回答越准，幻觉越少。但代价也很大——注意力计算随窗口大小平方增长，所以需要 MoE 稀疏架构和各种优化技术来支撑。</div>
 </section>
 
 <!-- ====== SLIDE 18: DB vs Vector DB ====== -->
 <section class="slide" data-title="DB vs Vector DB">
   <p class="kicker">infrastructure</p>
-  <h2 class="h2">传统数据库 vs 向量数据库</h2>
+  <div class="row" style="align-items:center;justify-content:space-between">
+    <h2 class="h2" style="margin:0">传统数据库 vs 向量数据库</h2>
+    <img src="assets/db-vector.png" alt="DB vs Vector" style="width:380px;height:auto">
+  </div>
   <table class="data-table mt-l">
     <tr><th>维度</th><th>传统数据库</th><th>向量数据库</th></tr>
     <tr><td>匹配方式</td><td>精确匹配（=）</td><td><strong>语义相似度匹配（≈）</strong></td></tr>
@@ -287,11 +330,11 @@
   <p class="kicker">limitations · 5 gaps</p>
   <h2 class="h2">大模型的不足</h2>
   <div class="grid g3 mt-l" style="max-width:780px;margin:0 auto;gap:16px">
-    <div class="card"><span class="tag" style="color:var(--bad)">? 高</span><h4 class="mt-s">幻觉问题</h4><p class="dim">一本正经编造不存在的事实<br>→ RAG 检索增强</p></div>
-    <div class="card"><span class="tag" style="color:var(--warn)">? 中</span><h4 class="mt-s">知识截止</h4><p class="dim">训练数据有日期边界<br>→ Search 联网搜索</p></div>
-    <div class="card card-accent"><span class="tag" style="color:var(--bad)">? 高</span><h4 class="mt-s">缺乏行动力</h4><p class="dim">只能输出文字无法操作世界<br>→ Agent + API + MCP</p></div>
-    <div class="card"><span class="tag" style="color:var(--warn)">? 中</span><h4 class="mt-s">推理局限</h4><p class="dim">复杂多步推理易出错<br>→ 思维链 CoT、多 Agent</p></div>
-    <div class="card"><span class="tag" style="color:var(--warn)">? 中</span><h4 class="mt-s">成本高昂</h4><p class="dim">大模型推理算力成本极高<br>→ 蒸馏、量化、端侧部署</p></div>
+    <div class="card"><span class="tag" style="color:var(--bad)">🔴 高</span><h4 class="mt-s">幻觉问题</h4><p class="dim">一本正经编造不存在的事实<br>→ RAG 检索增强</p></div>
+    <div class="card"><span class="tag" style="color:var(--warn)">🟡 中</span><h4 class="mt-s">知识截止</h4><p class="dim">训练数据有日期边界<br>→ Search 联网搜索</p></div>
+    <div class="card card-accent"><span class="tag" style="color:var(--bad)">🔴 高</span><h4 class="mt-s">缺乏行动力</h4><p class="dim">只能输出文字无法操作世界<br>→ Agent + API + MCP</p></div>
+    <div class="card"><span class="tag" style="color:var(--warn)">🟡 中</span><h4 class="mt-s">推理局限</h4><p class="dim">复杂多步推理易出错<br>→ 思维链 CoT、多 Agent</p></div>
+    <div class="card"><span class="tag" style="color:var(--warn)">🟡 中</span><h4 class="mt-s">成本高昂</h4><p class="dim">大模型推理算力成本极高<br>→ 蒸馏、量化、端侧部署</p></div>
   </div>
   <p class="lede mt-m"><strong>核心矛盾：LLM 能思考但做不了。这正是 Agent 存在的意义——给 LLM 装上"双手"。</strong></p>
   <div class="notes">LLM 虽然强大，但有五个明显的短板。第一，幻觉——它会一本正经地编造答案。你问"林则徐是哪年出生的"，它可能说 1785 年，但其实它根本不确定，只是概率最高的词恰好是 1785。第二，知识截止——GPT-4 的知识截止在训练日期，不知道之后发生的事。你问"今天股市怎么样"，它答不了。第三，缺乏行动力——它只能在对话框里输出文字，不能帮你订机票、发邮件、操作数据库。第四，推理局限——涉及三五步以上的复杂推理容易出错。第五，成本高昂——大模型每回答一个问题都要消耗大量算力。这五个短板的共同解决方案就是 Agent——给 LLM 配上搜索、RAG、API 调用和工具，让它从"只能聊"变成"能干"。</div>
@@ -303,12 +346,12 @@
   <h2 class="h2">什么是智能体？</h2>
   <div class="grid g2 mt-l" style="align-items:start">
     <div>
-      <p class="lede"><strong>Agent = LLM（大脑）+ 工具（双手）+ 记忆（经验）+ 设定（性格）</strong></p>
+      <p class="lede" style="font-size:20px"><strong>Agent = LLM（大脑）+ 工具（双手）+ 记忆（经验）+ 设定（性格）</strong></p>
       <table class="data-table mt-m">
         <tr><th>组件</th><th>作用</th><th>实现方式</th></tr>
         <tr><td>🔧 工具</td><td>与外部世界交互</td><td>API / MCP / Plugin</td></tr>
         <tr><td>🧠 记忆</td><td>保存和检索信息</td><td>RAG / Context / 向量数据库</td></tr>
-        <tr><td>? 行动</td><td>执行具体任务</td><td>Skill / Workflow 工作流</td></tr>
+        <tr><td>⚡ 行动</td><td>执行具体任务</td><td>Skill / Workflow 工作流</td></tr>
         <tr><td>🎭 人物设定</td><td>定义行为和边界</td><td>System Prompt / CoT</td></tr>
       </table>
     </div>
