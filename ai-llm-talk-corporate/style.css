@@ -1,0 +1,327 @@
+﻿﻿﻿﻿/* corporate-clean — scoped for ai-llm-talk deck */
+.tpl-corporate-clean {
+  --bg: #ffffff;
+  --bg-soft: #f5f7fa;
+  --surface: #ffffff;
+  --surface-2: #f0f3f7;
+  --border: rgba(10, 37, 64, 0.12);
+  --border-strong: rgba(10, 37, 64, 0.28);
+  --text-1: #0a2540;
+  --text-2: #425466;
+  --text-3: #8898aa;
+  --accent: #0a2540;
+  --accent-2: #1d4ed8;
+  --accent-3: #64748b;
+  --good: #0e9f6e;
+  --warn: #d97706;
+  --bad: #dc2626;
+  --grad: linear-gradient(135deg, #0a2540, #1d4ed8);
+  --grad-soft: linear-gradient(135deg, #f0f4fb, #e4ecf7);
+  --radius: 6px;
+  --radius-sm: 4px;
+  --radius-lg: 10px;
+  --shadow: 0 1px 3px rgba(10,37,64,.08), 0 4px 12px rgba(10,37,64,.05);
+  --shadow-lg: 0 4px 12px rgba(10,37,64,.1), 0 16px 40px rgba(10,37,64,.08);
+  --font-sans: "Inter", "Noto Sans SC", sans-serif;
+  --font-display: "Inter", "Noto Sans SC", sans-serif;
+  font-family: var(--font-sans);
+}
+
+.tpl-corporate-clean body,
+.tpl-corporate-clean {
+  background: #ffffff;
+}
+
+.tpl-corporate-clean .slide {
+  background: #ffffff;
+}
+
+.tpl-corporate-clean .h1 {
+  font-family: var(--font-display);
+  font-size: 68px;
+  line-height: 1.06;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--accent);
+}
+.tpl-corporate-clean .h2 {
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--accent);
+}
+.tpl-corporate-clean h3,
+.tpl-corporate-clean .h3 {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--text-1);
+}
+.tpl-corporate-clean h4,
+.tpl-corporate-clean .h4 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-1);
+}
+
+.tpl-corporate-clean .kicker {
+  color: var(--accent-2);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.tpl-corporate-clean .mono {
+  font-family: "JetBrains Mono", "IBM Plex Mono", monospace;
+}
+
+.tpl-corporate-clean .card {
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  background: var(--surface);
+}
+.tpl-corporate-clean .card-accent {
+  border-top: 3px solid var(--accent-2);
+}
+.tpl-corporate-clean .card-soft {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+}
+
+.tpl-corporate-clean .pill {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+
+.tpl-corporate-clean .divider-accent {
+  background: var(--accent-2);
+  height: 3px;
+  width: 56px;
+}
+
+.tpl-corporate-clean .lede {
+  color: var(--text-2);
+  font-weight: 400;
+}
+
+/* Terminal / code blocks */
+.tpl-corporate-clean .terminal {
+  background: #f5f7fa;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  font-family: "JetBrains Mono", "IBM Plex Mono", monospace;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.tpl-corporate-clean .terminal .bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+  font-size: 11px;
+  color: var(--text-3);
+  font-family: "JetBrains Mono", monospace;
+}
+.tpl-corporate-clean .terminal .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.tpl-corporate-clean .terminal .dot:nth-child(1) {
+  background: #dc2626;
+}
+.tpl-corporate-clean .terminal .dot:nth-child(2) {
+  background: #d97706;
+}
+.tpl-corporate-clean .terminal .dot:nth-child(3) {
+  background: #0e9f6e;
+}
+.tpl-corporate-clean .terminal pre {
+  margin: 0;
+  padding: 20px 24px;
+  color: var(--text-1);
+  overflow: auto;
+  max-height: 420px;
+}
+.tpl-corporate-clean .kw {
+  color: #dc2626;
+}
+.tpl-corporate-clean .fn {
+  color: #1d4ed8;
+}
+.tpl-corporate-clean .str {
+  color: #0e9f6e;
+}
+.tpl-corporate-clean .cmt {
+  color: var(--text-3);
+  font-style: italic;
+}
+.tpl-corporate-clean .num {
+  color: var(--accent-2);
+}
+
+/* Tag */
+.tpl-corporate-clean .tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  font-size: 11px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--text-2);
+  border-radius: 4px;
+}
+.tpl-corporate-clean .tag-accent {
+  background: rgba(29, 78, 216, 0.08);
+  color: var(--accent-2);
+  border-color: var(--accent-2);
+}
+
+/* Agenda rows */
+.tpl-corporate-clean .agenda-row {
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+}
+.tpl-corporate-clean .agenda-row .num {
+  color: var(--accent-2);
+  flex: none;
+  width: 40px;
+  font-weight: 700;
+  font-size: 18px;
+}
+.tpl-corporate-clean .agenda-row .t {
+  color: var(--text-1);
+  font-size: 22px;
+  flex: 1;
+  font-weight: 600;
+}
+.tpl-corporate-clean .agenda-row .d {
+  color: var(--text-3);
+  font-size: 13px;
+}
+
+/* Speaker */
+.tpl-corporate-clean .speaker {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 24px;
+}
+.tpl-corporate-clean .speaker .av {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--grad);
+}
+.tpl-corporate-clean .speaker b {
+  display: block;
+  color: var(--text-1);
+  font-size: 17px;
+}
+.tpl-corporate-clean .speaker span {
+  color: var(--text-3);
+  font-size: 12px;
+}
+
+/* Section divider */
+.tpl-corporate-clean .section-divider {
+  background: var(--grad);
+  color: #fff;
+}
+.tpl-corporate-clean .section-divider .h2 {
+  color: #fff;
+}
+.tpl-corporate-clean .section-divider .kicker {
+  color: rgba(255, 255, 255, 0.7);
+}
+.tpl-corporate-clean .section-divider .num {
+  font-size: 160px;
+  font-weight: 800;
+  font-family: var(--font-display);
+  line-height: 1;
+  opacity: 0.15;
+  position: absolute;
+  right: 60px;
+  top: 30px;
+  color: #fff;
+}
+
+/* Stat number */
+.tpl-corporate-clean .stat-num {
+  font-size: 64px;
+  font-weight: 700;
+  color: var(--accent-2);
+  line-height: 1;
+}
+
+/* Table styles */
+.tpl-corporate-clean .data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+.tpl-corporate-clean .data-table th {
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 2px solid var(--border-strong);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-3);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.tpl-corporate-clean .data-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-2);
+}
+.tpl-corporate-clean .data-table tr:last-child td {
+  border-bottom: 1px solid var(--border-strong);
+}
+
+/* Cover accent bar */
+.tpl-corporate-clean .accent-bar {
+  width: 80px;
+  height: 4px;
+  background: var(--accent-2);
+  margin-bottom: 24px;
+}
+
+/* For gradient text on cover */
+.tpl-corporate-clean .gradient-text {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Slide 2 — centered cards, tighter padding */
+.slide2-grid {
+  max-width: 820px;
+  margin: 0 auto;
+  gap: 14px;
+}
+.slide2-grid .card {
+  padding: 16px 20px;
+}
+/* Slide 5 — spread-out cards with white fill */
+.slide5-grid {
+  max-width: 960px;
+  margin: 0 auto;
+  gap: 28px;
+}
+.slide5-grid .card {
+  padding: 28px 30px;
+  background: #ffffff;
+}

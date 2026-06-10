@@ -1,0 +1,895 @@
+﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>人工智能与大语言模型 · Corporate Clean · Bruce Lin</title>
+<link rel="stylesheet" href="file:///C:/Users/lin/.codex/skills/html-ppt-skill/assets/fonts.css">
+<link rel="stylesheet" href="file:///C:/Users/lin/.codex/skills/html-ppt-skill/assets/base.css">
+<link rel="stylesheet" href="file:///C:/Users/lin/.codex/skills/html-ppt-skill/assets/animations/animations.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="tpl-corporate-clean" data-themes="corporate-clean,minimal-white,swiss-grid,blueprint,engineering-whiteprint" data-theme-base="file:///C:/Users/lin/.codex/skills/html-ppt-skill/assets/themes/">
+<div class="deck">
+
+<!-- ====== SLIDE 1: Cover ====== -->
+<section class="slide" data-title="Cover">
+  <h1 class="h1 anim-fade-up" data-anim="fade-up" style="font-size:56px">人工智能与<span class="gradient-text">大语言模型</span></h1>
+  <p class="lede mt-m">从基础概念到实战应用，探索 AI 与 LLM 的前沿科技领域。</p>
+  <div class="speaker">
+    <div class="av"></div>
+    <div><b>Bruce Lin</b></div>
+  </div>
+  <div class="deck-footer"><span class="mono">#AI #LLM #Agent #Ecommerce</span><span class="slide-number" data-current="1" data-total="50"></span></div>
+  <div class="notes">大家好！我是 Bruce Lin，欢迎来到今天的分享。今天我们要聊的是一个正在重塑整个世界的技术——人工智能和大语言模型。不管你对 AI 了解多少，今天的目标是让你从 0 到 1 建立一个完整的认知框架。我们会从最基础的概念开始，一路深入到 LLM 的训练原理、Agent 的运作方式，以及我们自己在电商领域的 AI 实战经验。整个过程大概 45 分钟，总共 48 页。好，我们开始。</div>
+</section>
+
+<!-- ====== SLIDE 2: AI in Daily Life ====== -->
+<section class="slide" data-title="AI in Daily Life">
+    <img src="assets/evolution.png" alt="Era Evolution" style="display:block; width:70%; height:auto; margin:0 auto 20px;">
+
+<h2 class="h2" style="font-size:42px">人类被拖拽着进入了下一个时代</h2>
+  <p class="lede mt-s">你今天用了多少次 AI？</p>
+  <div class="grid g3 mt-l slide2-grid">
+    <div class="card card-accent"><h4>👤 刷脸支付</h4><p class="dim">人脸识别 + 活体检测<br>看一眼就付款</p></div>
+    <div class="card card-accent"><h4>📱 刷短视频</h4><p class="dim">推荐算法<br>刷到停不下来</p></div>
+    <div class="card card-accent"><h4>🎤 语音助手</h4><p class="dim">语音识别 + NLP<br>"Hey Siri，明天天气"</p></div>
+    <div class="card card-accent"><h4>📷 拍照修图</h4><p class="dim">计算摄影 + GAN<br>夜景也能拍清楚</p></div>
+    <div class="card card-accent"><h4>🗺️ 导航出行</h4><p class="dim">实时路况预测<br>红色拥堵自动绕开</p></div>
+    <div class="card card-accent"><h4>🛒 在线购物</h4><p class="dim">协同过滤推荐<br>"猜你喜欢"出奇地准</p></div>
+  </div>
+  <div class="notes">在正式进入主题之前，我想先问大家一个问题：你今天用了多少次 AI？可能你觉得"我没用过"，但你仔细想想——早上醒来，用 Face ID 解锁手机，这是 AI 的人脸识别。通勤路上打开抖音刷刷视频，每个推荐都是 AI 算出来的。开车用高德导航，实时路况预测帮你避开拥堵，这也是 AI。晚上拍照发朋友圈，AI 美颜和夜景增强帮你修图。还有淘宝上那些"猜你喜欢"——准得有点吓人对不对？这些场景覆盖了一个人一天的全部流程。AI 不是未来的东西，它已经渗透进我们生活的每一个角落。问题不是"要不要拥抱 AI"，而是"你有没有意识到你已经在用 AI 了"。这页的目的就是打破"AI 离我很远"的错觉。</div>
+</section>
+<!-- ====== SLIDE 3: Agenda ====== -->
+<section class="slide" data-title="Agenda">
+  <p class="kicker">agenda.json</p>
+  <div class="stack mt-l">
+    <div class="agenda-row"><span class="num" style="font-weight:400">01</span><span class="t" style="font-weight:400">AI 人工智能基础</span></div>
+    <div class="agenda-row"><span class="num">02</span><span class="t">LLM 和 Agent 核心技术</span></div>
+    <div class="agenda-row"><span class="num" style="font-weight:400">03</span><span class="t" style="font-weight:400">AI工具链实战</span></div>
+    <div class="agenda-row"><span class="num" style="font-weight:400">04</span><span class="t" style="font-weight:400">AI 未来进化方向</span></div>
+  </div>
+  <div class="notes">先给大家过一下今天的议程。四个部分：第一，AI 人工智能基础，大概 10 分钟，我会讲 AI 的定义、三层进化、五级成熟度模型以及分析式和生成式 AI 的区别。第二，LLM 和 Agent 核心技术，这是今天的重头戏，15 分钟左右，我们会看到 LLM 是怎么被训练出来的、参数规模是怎么爆炸式增长的，然后引出 Agent——怎么给 LLM 装上双手。第三，AI工具链实战，这个我会多讲一点，大概 12 分钟，从 Codex CLI 到 OpenClaw 再到 Hermes Agent，都是我们实际在用的工具。第四，未来进化方向，快速过一下多模态、端侧部署、智能体联盟和垂直深耕。最后留 3 分钟给大家提问。过程中有任何问题随时打断我，不用等到最后。</div>
+</section>
+<!-- ====== SLIDE 4: What is AI ====== -->
+<section class="slide" data-title="What is AI">
+  <p class="kicker">chapter 01 · fundamentals</p>
+  <h2 class="h2">什么是 AI？</h2>
+  <p class="lede mt-s">让机器具备感知、理解、学习、推理、决策和创造的能力。</p>
+  <div class="grid g3 mt-l" style="max-width:780px;margin:0 auto;gap:16px">
+    <div class="card card-accent">
+      <div class="stat-num" style="font-size:48px">👁️</div>
+      <h4>感知能力</h4>
+      <p class="dim">AI 的"五官"——看世界、听声音</p>
+      <p class="dim2" style="font-size:13px">人脸识别 · 语音转文字 · 医学影像判读</p>
+    </div>
+    <div class="card card-accent">
+      <div class="stat-num" style="font-size:48px">🧠</div>
+      <h4>思考能力</h4>
+      <p class="dim">AI 的"大脑"——学知识、做决策</p>
+      <p class="dim2" style="font-size:13px">推荐算法 · 信用评估 · AlphaGo 对弈</p>
+    </div>
+    <div class="card card-accent">
+      <div class="stat-num" style="font-size:48px">🦾</div>
+      <h4>行动能力</h4>
+      <p class="dim">AI 的"双手"——创内容、控设备</p>
+      <p class="dim2" style="font-size:13px">AI 写文案 · 机械臂分拣 · 自动驾驶</p>
+    </div>
+  </div>
+  <p class="dim mt-m" style="font-style:italic">💡 在日常工作中，哪些重复性环节可以引入 AI 来提升效率？</p>
+  <div class="notes">首先，我们来明确一下什么是 AI。很多人一听到"人工智能"就觉得是科幻电影里那种会思考的机器人。其实 AI 的核心目标很简单——让机器具备类似人类的三种能力：感知、思考、行动。感知能力是 AI 的五官，让机器能看能听，比如你手机的人脸识别、微信的语音转文字、医院里的 AI 辅助读片，都是感知的范畴。思考能力是 AI 的大脑，让它从数据中找规律、做决策，比如淘宝知道你想买什么、银行判断你的信用分、AlphaGo 击败围棋冠军。行动能力是 AI 的双手，让它创造内容和控制设备，比如让 AI 帮你写营销文案、让机械臂在仓库里分拣快递、让汽车自己开。三者的关系是递进的：先有感知才能思考，有了思考才能指导行动。顺便抛个问题给大家——你可以想想自己的工作里，有哪些重复性环节可以交给 AI？这个问题值得每个人认真想想。</div>
+</section>
+
+<!-- ====== SLIDE 5: Three-Layer Evolution ====== -->
+<section class="slide" data-title="Three-Layer Evolution">
+  <p class="kicker">evolution · 3 layers</p>
+  <h2 class="h2">AI 与人类协同的三层进化</h2>
+  <div class="grid g3 mt-l slide5-grid">
+    <div class="card">
+      <span class="tag tag-accent">L1</span>
+      <h4 class="mt-s">ChatBot 私人助理</h4>
+      <p class="dim">被动问答，知识库辅助<br>客服机器人 · 智能音箱</p>
+    </div>
+    <div class="card">
+      <span class="tag tag-accent">L2</span>
+      <h4 class="mt-s">AI 员工 数字同事</h4>
+      <p class="dim">执行重复任务，按指令完成<br>RPA 自动填表 · 数据录入</p>
+    </div>
+    <div class="card card-accent">
+      <span class="tag">L3</span>
+      <h4 class="mt-s">AI Agent 自主代理</h4>
+      <p class="dim">理解目标、规划、执行、闭环<br>OPC 全链路自动化</p>
+    </div>
+  </div>
+  <p class="dim mt-m">三者是<strong>迭代升级、功能叠加</strong>的关系，不是新旧替代。</p>
+  <div class="notes">这一页非常关键，因为它给出了一个清晰的进化路线图。AI 与人类的协作可以分为三层。第一层，ChatBot 私人助理——被动回答问题，你在知识库里搜不到的它帮你搜。第二层，AI 员工——它能执行重复性任务，像一个永远不会累的数字同事。第三层，AI Agent——这才是真正的质变。给它一个总目标，它自己能拆解步骤、调用工具、做决策、闭环完成。三者不是新旧替代的关系，而是功能叠加。ChatBot 能做的 AI 员工也能做，AI 员工能做的 Agent 也能做。就像手机从打电话开始，后来有了拍照、导航、支付，老功能没丢，只是新能力不断叠加上去。</div>
+</section>
+
+<!-- ====== SLIDE 6: ChatBot ====== -->
+<section class="slide" data-title="ChatBot">
+  <p class="kicker">layer 1 · chatbot</p>
+  
+  <img src="assets/chatbot.png" alt="ChatBot" style="display:block;max-width:75%;height:auto;margin:24px auto 0">
+  <div class="notes">ChatBot 是最基础的 AI 形态——聊天机器人。你问一句，它从知识库里匹配最接近的答案丢给你。典型场景就是你在淘宝上问"我的快递到哪了"，机器人自动回复物流信息。它的优点是 24 小时在线、瞬时响应、成本几乎为零。但局限也很明显：只能做单轮问答，没法多步推理；只能聊天，不能实际操作任何东西。它是 AI 进化的起点。</div>
+</section>
+
+<!-- ====== SLIDE 7: AI Bot ====== -->
+<section class="slide" data-title="AI Bot">
+  <p class="kicker">layer 2 · ai bot</p>
+  
+  <img src="assets/aibot.png" alt="AI Bot" style="display:block;max-width:75%;height:auto;margin:24px auto 0">
+  <div class="notes">AI Bot 比 ChatBot 进了一步——它有了"人设"。给这个 AI 程序设定一个清晰的"人物角色"：它是做什么业务的？面对什么人？用什么样的语气说话？什么能做什么不能做？对标企业里的哪个岗位？这五个要素就像写一份岗位说明书，设定得越清晰，Bot 就越像真正的员工。举个例子，一个售后 Bot 应该专业且共情，能查订单但不能退款；一个内部 IT Bot 应该简洁高效，能重置密码但不能修改权限。角色设定是 Bot 的灵魂。</div>
+</section>
+
+<!-- ====== SLIDE 8: AI Agent ====== -->
+<section class="slide" data-title="AI Agent">
+  <p class="kicker">layer 3 · ai agent</p>
+  
+  <img src="assets/aiagent.png" alt="AI Agent" style="display:block;max-width:75%;height:auto;margin:24px auto 0">
+  <div class="notes">AI Agent 是目前最高级的形态。它的核心是四个字——自主闭环。你给它一个总目标，比如"帮我整理这个季度销售数据并生成周报"，它不会等你一步步指挥。它会自己拆解：先连接数据库拉数据，然后分析趋势，接着生成图表，最后排版输出。中间哪一步出错了，它能自己发现并修正。这就是 Agent 和 Bot 的本质区别——Bot 需要你一步步下达指令，Agent 只需要你给目标。目前这正是我们重点投入的方向。</div>
+</section>
+
+<!-- ====== SLIDE 9: AI 5-Level Maturity ====== -->
+<section class="slide" data-title="5-Level Maturity">
+  <p class="kicker">maturity model</p>
+  <h2 class="h2">AI 五级成熟度模型</h2>
+  <img src="assets/maturity.png" alt="AI 五级成熟度模型" style="display:block;max-width:80%;height:auto;margin:24px auto 0">
+  <div class="notes">AI 的能力可以从五个等级来理解。L1 的 Chatbot 就是聊天搭子，只会一问一答。L2 的 Reasoner 会推理但需要你一步步指挥。L3 的 Agent 就是我们现在的 OPC——给目标自己完成。L4 的 Innovator 能突破人类知识的边界，比如 DeepMind 的 AlphaFold，它预测了几乎所有的蛋白质结构，这是人类科学家几十年都没完成的。L5 的 ORGs 是终极形态——跨部门甚至跨公司的 AI 联盟，销售 Agent、研发 Agent、售后 Agent、财务 Agent 自动协作。目前我们在 L3，L4 已经在某些领域出现了，L5 还在路上。</div>
+</section>
+
+<!-- ====== SLIDE 11: Analytical vs Generative AI ====== -->
+<section class="slide" data-title="Analytical vs Generative AI">
+  <p class="kicker">two brains · analytical & generative</p>
+  <h2 class="h2">分析式 AI vs 生成式 AI</h2>
+  <div class="grid g2 mt-l" style="grid-template-columns:1fr 1fr;align-items:start;gap:32px">
+    <div class="card card-accent" style="padding:24px 28px">
+      <h4 class="h4" style="color:var(--accent-2)">🧮 分析式 AI · 左脑</h4>
+      <p class="lede mt-s">识别、分类、预测——从已有数据中发现规律</p>
+      <table class="data-table mt-m">
+        <tr><th>应用领域</th><th>技术方法</th></tr>
+        <tr><td>金融风控 · 欺诈检测</td><td>逻辑回归、XGBoost</td></tr>
+        <tr><td>医疗诊断 · 影像判读</td><td>CNN 卷积神经网络</td></tr>
+        <tr><td>零售推荐 · 猜你喜欢</td><td>协同过滤、矩阵分解</td></tr>
+        <tr><td>工业质检 · 瑕疵检测</td><td>计算机视觉 + 时序分析</td></tr>
+      </table>
+      
+    </div>
+    <div class="card card-accent" style="padding:24px 28px">
+      <h4 class="h4" style="color:var(--accent-2)">🎨 生成式 AI · 右脑</h4>
+      <p class="lede mt-s">创造、生成、合成——从提示中创造全新内容</p>
+      <table class="data-table mt-m">
+        <tr><th>模态</th><th>代表产品</th></tr>
+        <tr><td>📝 文本</td><td>ChatGPT · Claude · 文心一言</td></tr>
+        <tr><td>🎨 图片</td><td>Midjourney · DALL·E · SD</td></tr>
+        <tr><td>🎬 视频</td><td>Sora · Runway · Pika</td></tr>
+        <tr><td>🎵 音频</td><td>Suno · ElevenLabs</td></tr>
+        <tr><td>💻 代码</td><td>GitHub Copilot · Codex · Cursor</td></tr>
+      </table>
+      
+    </div>
+  </div>
+  <div class="notes">分析式 AI 和生成式 AI 就像人的左脑和右脑。分析式 AI 是左脑——理性、逻辑、数据驱动，核心能力是"判对错"。银行判断欺诈、医院读 CT 片、淘宝推荐商品，都是分析式 AI。生成式 AI 是右脑——创意、想象、从无到有。ChatGPT 写文章、Midjourney 画图、Sora 生成视频、Suno 作曲，都是 2022 年之后才爆发的。两者的区别：分析式 AI 在已有数据中找规律，生成式 AI 学会了"创造"的规律。这就是为什么这波 AI 浪潮如此不同——它不再只是分析工具，而是创意引擎。</div>
+</section>
+
+<!-- ====== SLIDE 13: Section Divider → Ch2 ====== -->
+<section class="slide" data-title="Section: LLM & Agent">
+  <p class="kicker">chapter 02</p>
+  
+  <div class="stack mt-l">
+    <div class="agenda-row"><span class="num" style="font-weight:400">01</span><span class="t" style="font-weight:400">AI 人工智能基础</span></div>
+    <div class="agenda-row"><span class="num">02</span><span class="t">LLM 和 Agent 核心技术</span></div>
+    <div class="agenda-row"><span class="num" style="font-weight:400">03</span><span class="t" style="font-weight:400">AI工具链实战</span></div>
+    <div class="agenda-row"><span class="num" style="font-weight:400">04</span><span class="t" style="font-weight:400">AI 未来进化方向</span></div>
+  </div>
+  <div class="notes">好，第一部分 AI 基础我们讲完了。花了几分钟建立了基本认知框架——AI 是什么、三层进化、五级成熟度、分析式 vs 生成式。现在进入第二部分——今天的核心，LLM 和 Agent。这两个词你可能经常听到但不太清楚到底是什么意思。接下来我们会深入 LLM 的训练原理、参数规模的爆炸式增长，以及 Agent 怎么给 LLM 装上双手，让它真正能做事情。</div>
+</section>
+
+<!-- ====== SLIDE 14: AI and LLM ====== -->
+<section class="slide" data-title="AI & LLM Relationship">
+  <p class="kicker">relationship</p>
+  <h2 class="h2">AI 和 LLM 的关系</h2>
+  <div class="grid g2 mt-l" style="align-items:start">
+    <div>
+      <p class="lede"><strong>LLM 属于 AI，但 AI 远不止 LLM。</strong></p>
+      <div class="stack mt-m">
+        <div class="tag">LLM = Large Language Model 大语言模型</div>
+        <div class="tag">AI = 计算机视觉 + 语音识别 + 机器人 + 自动驾驶 + LLM + ...</div>
+      </div>
+      <p class="dim mt-m">LLM 是 AI 里负责"语言与思考"的核心大脑。</p>
+    </div>
+    <div class="terminal">
+      <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span>AI ? LLM</span></div>
+      <pre>┌────────── AI 人工智能 ──────────┐
+│ 视觉 · 语音 · 机器人 · 自动驾驶  │
+│         ┌── LLM ──┐            │
+│         │ 语言理解  │            │
+│         │ 文本生成  │            │
+│         │ 逻辑推理  │            │
+│         └─────────┘            │
+└────────────────────────────────┘</pre>
+    </div>
+  </div>
+  <div class="notes">在进入 LLM 之前，先厘清一个基本概念：LLM 是什么、它和 AI 是什么关系。LLM 是 Large Language Model 的缩写——大语言模型。它是 AI 这个大家族里负责"语言和思考"的核心大脑。但 AI 远不止 LLM。AI 还包括计算机视觉——让机器看懂图片；语音识别——让机器听懂人话；机器人——让机器动手操作；自动驾驶——让汽车自己开。LLM 是当前最火的分支，但它只是 AI 的一部分。理解这个关系很重要，这样你就不会把 ChatGPT 等同于整个 AI。</div>
+</section>
+
+<!-- ====== SLIDE 15: LLM Probability ====== -->
+<section class="slide" data-title="LLM Training">
+  <p class="kicker">training · 5 steps</p>
+  <h2 class="h2">LLM 概率推导式</h2>
+  <p class="lede">LLM 本质是一个超大规模的<strong>"下一个词预测器"</strong>。</p>
+  <div class="grid g3 mt-l" style="max-width:780px;margin:0 auto;gap:16px">
+    <div class="card"><span class="tag tag-accent">① 投喂数据</span><p class="dim mt-s">海量文本作为学习素材<br>互联网、书籍、论文、代码</p></div>
+    <div class="card"><span class="tag tag-accent">② 预判训练</span><p class="dim mt-s">强制逐字预测下一个词<br>"今天天气真___" → "好"</p></div>
+    <div class="card"><span class="tag tag-accent">③ 对比纠错</span><p class="dim mt-s">与标准答案对比计算误差<br>预测"差"→扣分；"好"→加分</p></div>
+    <div class="card"><span class="tag tag-accent">④ 反向调参</span><p class="dim mt-s">误差回传调整数百亿参数<br>强化正确关联，削弱错误</p></div>
+    <div class="card card-accent"><span class="tag">⑤ 亿万轮迭代</span><p class="dim mt-s">重复以上四步直至收敛<br>慢慢摸清语言规律与常识</p></div>
+  </div>
+  <div class="notes">大语言模型到底是怎么训练出来的？很多人觉得神秘，其实就是五步循环。第一步，投喂数据——把互联网上能找到的所有文本，包括维基百科、书籍、论文、代码仓库、论坛帖子，全部丢给模型当教材。不是几百本书，是万亿级别的词。第二步，预判训练——给模型半句话让它猜下一个词。比如"今天天气真"，模型要猜"好"还是"差"。第三步，对比纠错——猜完之后对照标准答案。猜对了加分，猜错了扣分，算出误差。第四步，反向调参——这个误差会被送回模型内部，调整那几百亿个参数，把猜对的路径强化、猜错的削弱。这就是"学习"的本质。第五步，亿万轮迭代——以上四步循环几十亿次，模型慢慢就摸清了语言规律。所以 LLM 本质上就是一个超级精确的"猜词机器"。所谓"理解"和"思考"，其实是海量统计规律在起作用。</div>
+</section>
+
+<!-- ====== SLIDE 16: LLM Applications ====== -->
+<section class="slide" data-title="LLM Applications">
+  <p class="kicker">applications · 6 categories</p>
+  <h2 class="h2">LLM 的基础应用</h2>
+  <div class="grid g3 mt-l" style="max-width:780px;margin:0 auto;gap:16px">
+    <div class="card card-accent"><h4>✍️ 文本生成</h4><p class="dim">写邮件、写报告、写营销文案</p></div>
+    <div class="card card-accent"><h4>🌐 机器翻译</h4><p class="dim">中英互译、多语言实时客服</p></div>
+    <div class="card card-accent"><h4>📄 文本摘要</h4><p class="dim">会议纪要自动生成、新闻 3 句总结</p></div>
+    <div class="card card-accent"><h4>? 智能问答</h4><p class="dim">知识库问答、技术答疑、法律咨询</p></div>
+    <div class="card card-accent"><h4>⌨️ 代码生成</h4><p class="dim">GitHub Copilot 帮你写函数</p></div>
+    <div class="card card-accent"><h4>💬 情感分析</h4><p class="dim">用户评价分析、舆情监控、客服质检</p></div>
+  </div>
+  <div class="notes">LLM 最基础的应用可以概括为六大类。文本生成——你说"帮我写一篇产品发布新闻稿"，它 30 秒就能出一篇。机器翻译——中英互译质量已经接近专业翻译，甚至能处理文言文和方言。文本摘要——一个小时的会议录音转成文字后，它能帮你总结成三段话。智能问答——你可以把一本 300 页的产品手册丢给它，然后直接问"这个功能怎么配置"。代码生成——GitHub Copilot 已经成了程序员的标配，你写一行注释它帮你补全整个函数。情感分析——企业可以用它来批量分析几千条用户评价，自动判断正面还是负面。这六大能力构成了 LLM 的基础应用矩阵。</div>
+</section>
+
+<!-- ====== SLIDE 17: LLM Parameter Scale ====== -->
+<section class="slide" data-title="Parameter Scale">
+  <p class="kicker">scale · exponential</p>
+  <h2 class="h2">LLM 参数规模演进</h2>
+  <table class="data-table mt-m" style="font-size:14px">
+    <tr><th>年份</th><th>代表模型</th><th>参数规模</th><th>阶段特点</th></tr>
+    <tr><td>2018</td><td>GPT-1 / BERT</td><td>~1 亿</td><td>预训练模型出现</td></tr>
+    <tr><td>2020</td><td>GPT-3</td><td><strong>1750 亿</strong></td><td>千亿级大模型诞生</td></tr>
+    <tr><td>2022</td><td>GPT-4</td><td><strong>~1.8 万亿</strong></td><td>万亿级，多模态出现</td></tr>
+    <tr><td>2024</td><td>Claude 3 / GPT-4o</td><td>千亿级</td><td>更高效、轻量化</td></tr>
+    <tr><td>2026</td><td>GPT-5 Ultra / Gemini 3</td><td><strong>8-10万亿 (MoE)</strong></td><td>稀疏架构，按需激活</td></tr>
+  </table>
+  <div class="grid g3 mt-l" style="max-width:780px;margin:0 auto;gap:16px">
+    <div class="card card-soft">
+      <p class="mono" style="font-size:12px;color:var(--text-3)">核心竞争 = 算力 + 能源</p>
+      <p class="dim">谁有更多 GPU 和更便宜的电力，谁就能训练更大的模型。</p>
+    </div>
+    <div class="card card-soft">
+      <p class="mono" style="font-size:12px;color:var(--text-3)">趋势：MoE 稀疏架构</p>
+      <p class="dim">不是所有参数同时激活，按需调用，大幅提升效率。</p>
+    </div>
+  </div>
+  <div class="notes">这张表展示了 LLM 参数规模的指数级增长。2015 年还是几百万参数的小模型，到了 2020 年 GPT-3 就达到了 1750 亿参数——增长了几个数量级。2022 年 GPT-4 大约 1.8 万亿参数，2026 年最新的 GPT-5 Ultra 达到了 10 万亿参数。什么概念？如果把一个参数比作一个神经元，GPT-3 相当于一只蜜蜂的大脑，GPT-4 相当于一只老鼠，GPT-5 接近人类大脑的复杂度了。而且现在的趋势是用 MoE 稀疏架构——不是所有参数同时激活，而是按需调用，大幅提升效率。大模型竞争的核心其实就两个词：算力和能源。谁有更多的 GPU 和更便宜的电力，谁就能训练更大的模型。</div>
+</section>
+
+<!-- ====== SLIDE 18: DB vs Vector DB ====== -->
+<section class="slide" data-title="DB vs Vector DB">
+  <p class="kicker">infrastructure</p>
+  <h2 class="h2">传统数据库 vs 向量数据库</h2>
+  <table class="data-table mt-l">
+    <tr><th>维度</th><th>传统数据库</th><th>向量数据库</th></tr>
+    <tr><td>匹配方式</td><td>精确匹配（=）</td><td><strong>语义相似度匹配（≈）</strong></td></tr>
+    <tr><td>数据结构</td><td>表格、行、列</td><td>高维向量（Embedding）</td></tr>
+    <tr><td>查询语言</td><td>SQL</td><td>向量相似度算法（余弦、欧氏距离）</td></tr>
+    <tr><td>典型产品</td><td>MySQL、PostgreSQL</td><td>Pinecone、Milvus、Qdrant</td></tr>
+    <tr><td>使用场景</td><td>订单查询、用户管理</td><td>语义搜索、图像检索、RAG 知识库</td></tr>
+  </table>
+  <div class="notes">这个对比很重要，因为它是 RAG 技术的基础。传统数据库做精确匹配——"用户 ID 等于 12345"，找到了就找到了，找不到就是空。但 LLM 需要的是语义匹配——"这段话和那篇文章说的是同一个意思吗？"这个问题传统数据库解决不了。向量数据库的解决方案是：把文本通过 Embedding 模型转成高维向量——比如 1536 维的一个数字数组——然后计算两个向量之间的余弦距离。距离越接近 1，语义越相似。这就是为什么你问 LLM"怎么煮鸡蛋"，它能从知识库中找到"水煮蛋的烹饪方法"那段文档，虽然用词不同，但向量距离很近。</div>
+</section>
+
+<!-- ====== SLIDE 19: LLM Limitations ====== -->
+<section class="slide" data-title="LLM Limitations">
+  <p class="kicker">limitations · 5 gaps</p>
+  <h2 class="h2">大模型的不足</h2>
+  <div class="grid g3 mt-l" style="max-width:780px;margin:0 auto;gap:16px">
+    <div class="card"><span class="tag" style="color:var(--bad)">? 高</span><h4 class="mt-s">幻觉问题</h4><p class="dim">一本正经编造不存在的事实<br>→ RAG 检索增强</p></div>
+    <div class="card"><span class="tag" style="color:var(--warn)">? 中</span><h4 class="mt-s">知识截止</h4><p class="dim">训练数据有日期边界<br>→ Search 联网搜索</p></div>
+    <div class="card card-accent"><span class="tag" style="color:var(--bad)">? 高</span><h4 class="mt-s">缺乏行动力</h4><p class="dim">只能输出文字无法操作世界<br>→ Agent + API + MCP</p></div>
+    <div class="card"><span class="tag" style="color:var(--warn)">? 中</span><h4 class="mt-s">推理局限</h4><p class="dim">复杂多步推理易出错<br>→ 思维链 CoT、多 Agent</p></div>
+    <div class="card"><span class="tag" style="color:var(--warn)">? 中</span><h4 class="mt-s">成本高昂</h4><p class="dim">大模型推理算力成本极高<br>→ 蒸馏、量化、端侧部署</p></div>
+  </div>
+  <p class="lede mt-m"><strong>核心矛盾：LLM 能思考但做不了。这正是 Agent 存在的意义——给 LLM 装上"双手"。</strong></p>
+  <div class="notes">LLM 虽然强大，但有五个明显的短板。第一，幻觉——它会一本正经地编造答案。你问"林则徐是哪年出生的"，它可能说 1785 年，但其实它根本不确定，只是概率最高的词恰好是 1785。第二，知识截止——GPT-4 的知识截止在训练日期，不知道之后发生的事。你问"今天股市怎么样"，它答不了。第三，缺乏行动力——它只能在对话框里输出文字，不能帮你订机票、发邮件、操作数据库。第四，推理局限——涉及三五步以上的复杂推理容易出错。第五，成本高昂——大模型每回答一个问题都要消耗大量算力。这五个短板的共同解决方案就是 Agent——给 LLM 配上搜索、RAG、API 调用和工具，让它从"只能聊"变成"能干"。</div>
+</section>
+
+<!-- ====== SLIDE 20: What is Agent ====== -->
+<section class="slide" data-title="What is Agent">
+  <p class="kicker">agent · definition</p>
+  <h2 class="h2">什么是智能体？</h2>
+  <div class="grid g2 mt-l" style="align-items:start">
+    <div>
+      <p class="lede"><strong>Agent = LLM（大脑）+ 工具（双手）+ 记忆（经验）+ 设定（性格）</strong></p>
+      <table class="data-table mt-m">
+        <tr><th>组件</th><th>作用</th><th>实现方式</th></tr>
+        <tr><td>🔧 工具</td><td>与外部世界交互</td><td>API / MCP / Plugin</td></tr>
+        <tr><td>🧠 记忆</td><td>保存和检索信息</td><td>RAG / Context / 向量数据库</td></tr>
+        <tr><td>? 行动</td><td>执行具体任务</td><td>Skill / Workflow 工作流</td></tr>
+        <tr><td>🎭 人物设定</td><td>定义行为和边界</td><td>System Prompt / CoT</td></tr>
+      </table>
+    </div>
+    <div class="card card-soft center" style="min-height:280px">
+      <div style="text-align:center">
+        <div class="stat-num" style="font-size:80px">🤖</div>
+        <p class="dim mt-s">四个组件加在一起，LLM 从"聊天窗口"变成能自主行动的"数字员工"</p>
+      </div>
+    </div>
+  </div>
+  <div class="notes">终于讲到智能体了。到底什么是 Agent？我用一个公式概括：Agent 等于 LLM 大脑加工具双手加记忆经验加设定性格。大脑是 LLM，负责理解和推理。双手是工具——通过 API、MCP 协议、插件来操作外部世界，订机票、发邮件、查数据库。经验是记忆——通过 RAG 和向量数据库记住之前的对话和知识。性格是设定——通过 System Prompt 定义它该做什么不该做什么、用什么语气说话。这四个组件加在一起，LLM 就不再只是一个聊天窗口，而是一个能自主行动的"数字员工"。</div>
+</section>
+
+<!-- ====== SLIDE 21: Interactive 1 - Pure LLM ====== -->
+<section class="slide" data-title="Interactive 1: Pure LLM">
+  <p class="kicker">demo · pure llm</p>
+  <h2 class="h2">交互式对话（1）— 纯 LLM 模式</h2>
+  <div class="grid g2 mt-l" style="align-items:start">
+    <div class="terminal">
+      <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span>chat.log</span></div>
+      <pre>💬 今年团建经费每人100块，给我一个杭州一日游方案。
+
+💬 行吧，100块的杭州一日游，从早上行程开始安排...
+
+💬 哦我说错了，其实已经没有经费了，你再想想？
+
+💬 要不把我开除了换点钱吧？
+
+💬 现在给我一个开除方案，明天给我。</pre>
+    </div>
+    <div>
+      <p class="lede">暴露三大问题：</p>
+      <div class="stack mt-m">
+        <div class="card"><span class="tag" style="color:var(--bad)">无记忆</span> <span class="dim">忘了刚才说过的"100 块预算"</span></div>
+        <div class="card"><span class="tag" style="color:var(--bad)">无工具</span> <span class="dim">不能真的搜索杭州一日游攻略或订票</span></div>
+        <div class="card"><span class="tag" style="color:var(--bad)">无判断</span> <span class="dim">无法区分玩笑和真实需求</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="notes">这个例子非常生动地展示了纯 LLM 的局限性。你看这段对话——用户先说要 100 块预算的杭州一日游，LLM 认真规划。然后用户说"其实没经费了"，LLM 直接无厘头地说"要不把我开除了换点钱"。用户接着开玩笑说"你给我一个开除方案"，LLM 居然真的准备去写。这里暴露了三个问题：第一，没有记忆——它忘了上下文的变化。第二，没有工具——它只能回复文字，不能真的去搜索旅游信息。第三，没有判断力——它分不清调侃和真实指令。这就是为什么光有 LLM 不够，我们需要 Agent。</div>
+</section>
+
+<!-- ====== SLIDE 22: Interactive 2 - +Search ====== -->
+<section class="slide" data-title="Interactive 2: +Search">
+  <p class="kicker">demo · +search</p>
+  <h2 class="h2">交互式对话（2）— + Search</h2>
+  <div class="grid g2 mt-l" style="align-items:start">
+    <div class="terminal">
+      <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span>chat.log</span></div>
+      <pre>💬 给我整理下最近比较劲爆的新闻。
+
+💬 需要，查关键字：今日劲爆新闻
+
+💬 [搜索结果] 1：OpenClaw 爆火！ 2：OpenClaw 翻车！
+
+💬 今天有两条劲爆新闻：OpenClaw 爆火，然后又翻车了。
+
+💬 ？</pre>
+    </div>
+    <div>
+      <div class="stack">
+        <div class="card card-soft"><span class="tag" style="color:var(--good)">? 联网搜索</span> <span class="dim">可以获取实时信息</span></div>
+        <div class="card card-soft"><span class="tag" style="color:var(--good)">? 理解上下文</span> <span class="dim">能整合搜索结果</span></div>
+        <div class="card card-soft"><span class="tag" style="color:var(--bad)">? 统一调度</span> <span class="dim">搜索是手动触发，无 Agent 统一管理</span></div>
+        <div class="card card-soft"><span class="tag" style="color:var(--bad)">? 信息验证</span> <span class="dim">无法判断搜索结果真实性</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="notes">这个版本加入了搜索能力。LLM 可以联网查最新信息了——这在上一页做不到。用户问最近有什么劲爆新闻，LLM 自动搜索并返回了结果：OpenClaw 爆火然后翻车。但这里又暴露了新问题——它只是把搜索结果复述了一遍，没有任何判断。"OpenClaw 爆火"和"OpenClaw 翻车"这两条信息是否矛盾？需不需要进一步核实？它没有这个能力。而且搜索是手动触发的，没有一个统一的调度层来管理什么时候该搜索、搜索什么、怎么整合结果。这就是下一步要解决的问题。</div>
+</section>
+
+<!-- ====== SLIDE 23: Interactive 3 - Agent ====== -->
+<section class="slide" data-title="Interactive 3: Agent">
+  <p class="kicker">demo · agent</p>
+  <h2 class="h2">交互式对话（3）— Agent + RAG + Search</h2>
+  <div class="grid g2 mt-l" style="align-items:start">
+    <div class="terminal">
+      <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span>agent.log</span></div>
+      <pre>💬 给我整理下最近比较劲爆的新闻。
+
+💬 需要，查关键字：今日劲爆新闻
+
+💬 [搜索结果] OpenClaw 爆火！ / OpenClaw 翻车！
+
+💬 今天有两条和 OpenClaw 相关的热门新闻。
+第一条说它因开源生态迅速走红，
+第二条报道了它遭遇安全事故导致口碑逆转。
+时间线是：先爆火、后翻车。
+需要我展开详细分析吗？</pre>
+    </div>
+    <div>
+      <p class="lede">架构升级：Agent 统一调度</p>
+      <table class="data-table mt-m">
+        <tr><th>组件</th><th>作用</th></tr>
+        <tr><td>Agent 调度层</td><td>统一管理搜索时机、工具选择、结果编排</td></tr>
+        <tr><td>Search</td><td>实时获取外部信息</td></tr>
+        <tr><td>RAG 知识库</td><td>补充背景知识，辅助事实核查</td></tr>
+        <tr><td>LLM 推理</td><td>整合信息、判断逻辑、生成回复</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="notes">最后这个版本是 Agent 架构——加入了统一的调度层。和前两版相比最大的区别是：Agent 不只是"搜到就念出来"，它能判断两条信息之间的关系——先爆火、后翻车是正常的时间线，不是矛盾信息。它还能主动问"需要我展开详细分析吗"，说明有了一定的自主性。这就是 Agent + RAG + Search 三位一体的效果：Agent 决定什么时候搜什么，Search 负责获取，RAG 提供背景知识辅助判断，LLM 负责整合输出。这三个组件协同工作，才构成了一个真正有用的智能体。</div>
+</section>
+
+<!-- ====== SLIDE 24: Agent Internal ====== -->
+<section class="slide" data-title="Agent Internal">
+  <p class="kicker">internal · 5 components</p>
+  <h2 class="h2">智能体的内部功能</h2>
+  <div class="grid g3 mt-l" style="max-width:780px;margin:0 auto;gap:16px">
+    <div class="card card-accent"><h4>🧠 Context 上下文</h4><p class="dim">Agent 的"工作记忆"，承载当前对话和任务信息。上下文窗口管理、Token 预算。</p></div>
+    <div class="card card-accent"><h4>💬 Prompt 提示词</h4><p class="dim">定义 Agent 的角色、规则与行为边界。System Prompt + 指令模板。</p></div>
+    <div class="card card-accent"><h4>📤 Response 响应</h4><p class="dim">基于上下文和提示词产出输出。LLM 推理 + Token 采样策略。</p></div>
+    <div class="card card-accent"><h4>🔍 Search 搜索</h4><p class="dim">突破知识截止日期，获取实时信息。搜索引擎 API / 新闻源。</p></div>
+    <div class="card card-accent"><h4>📚 RAG 检索增强</h4><p class="dim">从私有知识库检索最相关内容。Embedding + 向量数据库 + 重排序。</p></div>
+  </div>
+  <div class="notes">Agent 内部有五大核心要素。Context 是工作记忆——Agent 需要记住当前的对话和任务状态。Prompt 是规则手册——定义了它是什么角色、该遵守什么规则。Response 是输出引擎——基于前面的信息生成回复。Search 是外部信息获取通道——突破模型自身的知识边界。RAG 是从私有知识库中检索最相关的内容。这五个要素需要在有限的上下文窗口内高效协作——context window 是宝贵的资源，不能什么东西都往里塞。</div>
+</section>
+<!-- ====== SLIDE 25: Interactive 4 - API ====== -->
+<section class="slide" data-title="Interactive 4: API">
+  <p class="kicker">demo · agent + api</p>
+  <h2 class="h2">交互式对话（4）— Agent + API</h2>
+  <p class="lede">Agent ← hardcode calling → API</p>
+  <table class="data-table mt-l">
+    <tr><th>方式</th><th>协议</th><th>优点</th><th>缺点</th></tr>
+    <tr><td><strong>原生 API</strong></td><td>HTTP JSON</td><td>自由、无平台绑定、完全可控</td><td>需硬编码、开发维护成本高</td></tr>
+    <tr><td>Plugin 插件</td><td>平台私有协议</td><td>零代码配置、开箱即用</td><td>平台锁定、不能跨模型复用</td></tr>
+    <tr><td><strong>MCP 协议</strong></td><td>JSON-RPC</td><td>跨平台通用、自动发现工具</td><td>有学习成本、轻量任务偏笨重</td></tr>
+  </table>
+  <p class="dim mt-m"><strong>核心事实：</strong>不管哪种方式，底层都是 JSON。结构化数据交互是 Agent 与外部世界的统一语言。</p>
+  <div class="notes">Agent 怎么和外部世界交互？三种方式。原生 API 调用最灵活——你直接写好 HTTP 请求，Agent 调你的后端接口。但缺点是每个接口都要手动写适配代码，维护成本高。Plugin 插件最方便——平台把常用工具都封装好了，你勾选就行。但缺点也很明显，被平台绑定，换个模型就用不了。MCP 是 Anthropic 提出的模型上下文协议，基于 JSON-RPC，跨平台通用，Agent 能自动发现有哪些工具可用。三种方式的共同点是——底层全是 JSON。所以 Agent 外接任何系统，本质上就是在处理 JSON 数据的输入输出。</div>
+</section>
+
+<!-- ====== SLIDE 26: Interactive 5 - MCP ====== -->
+<section class="slide" data-title="Interactive 5: MCP">
+  <p class="kicker">demo · agent + mcp</p>
+  <h2 class="h2">交互式对话（5）— Agent + MCP</h2>
+  <p class="lede">Agent ← MCP → MCP Server</p>
+  <div class="grid g2 mt-l" style="align-items:start">
+    <div>
+      <table class="data-table">
+        <tr><th>步骤</th><th>动作</th></tr>
+        <tr><td>1</td><td>Agent 启动时连接 MCP Server</td></tr>
+        <tr><td>2</td><td>MCP Server 向 Agent 注册可用工具列表</td></tr>
+        <tr><td>3</td><td>Agent 根据任务自动选择合适的工具</td></tr>
+        <tr><td>4</td><td>工具执行后通过 JSON-RPC 返回结果</td></tr>
+        <tr><td>5</td><td>Agent 整合结果继续下一步推理</td></tr>
+      </table>
+    </div>
+    <div class="card card-soft center" style="min-height:200px">
+      <div>
+        <p class="mono" style="font-size:14px;color:var(--accent-2)">跨模型 · 跨平台</p>
+        <p class="dim mt-s">不管底层是 Claude 还是 GPT<br>MCP 协议都是通用的</p>
+        <p class="dim2 mt-s" style="font-size:13px">自动发现工具 → 降低接入门槛</p>
+      </div>
+    </div>
+  </div>
+  <div class="notes">MCP 是目前最值得关注的 Agent 协议标准。它的工作流程很清晰：Agent 启动时自动连接 MCP Server，Server 告诉 Agent"我有哪些工具可以用"，然后 Agent 根据任务需要自动选择调用。整个过程和手动写 API 调用的区别在于——Agent 不需要事先知道每个工具的具体参数格式，MCP Server 会告诉它。这就大大降低了 Agent 接入新系统的门槛。而且 MCP 是跨模型跨平台的——不管底层用的是 Claude 还是 GPT，MCP 协议都是通用的。</div>
+</section>
+
+<!-- ====== SLIDE 27: Agent External ====== -->
+<section class="slide" data-title="Agent External">
+  <p class="kicker">external · architecture</p>
+  <h2 class="h2">智能体的外部功能</h2>
+  <div class="grid g2 mt-l" style="align-items:start">
+    <div class="terminal">
+      <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span>architecture</span></div>
+      <pre>┌──── 外部工具层 ────────────────┐
+│ Search │ RAG │ hardcode API   │
+│   ↓       ↓         ↓         │
+│  ┌─────────────────────┐      │
+│  │  Agent 核心调度      │      │
+│  │ Context·Prompt·Resp  │      │
+│  └─────────────────────┘      │
+│   ↓       ↓         ↓         │
+│ Plugin │ MCP  │  Skill        │
+│ (绑定)  (跨平台) (封装)        │
+└───────────────────────────────┘</pre>
+    </div>
+    <div>
+      <table class="data-table">
+        <tr><th>场景</th><th>推荐方式</th><th>原因</th></tr>
+        <tr><td>内部系统集成</td><td><strong>原生 API</strong></td><td>完全可控，无平台锁定</td></tr>
+        <tr><td>快速使用</td><td>Plugin</td><td>零代码，即开即用</td></tr>
+        <tr><td>跨平台多模型</td><td><strong>MCP</strong></td><td>通用协议，一次适配到处用</td></tr>
+        <tr><td>可复用能力</td><td>Skill</td><td>封装为标准模块，可组合</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="notes">这一页是 Agent 外部功能的完整架构图。上面是输入层——Search、RAG、硬编码 API，负责给 Agent 提供信息。中间是 Agent 核心调度层——Context、Prompt、Response。下面是输出层——Plugin、MCP、Skill，负责执行具体操作。选型上有个简单的原则：内部系统用原生 API 最灵活，快速上手用 Plugin 最方便，跨平台用 MCP 最通用，可复用的能力封装成 Skill 最省心。实际项目中往往是混用的。</div>
+</section>
+
+<!-- ====== SLIDE 28: Interactive 6 - Skills ====== -->
+<section class="slide" data-title="Interactive 6: Skills">
+  <p class="kicker">demo · skills</p>
+  <h2 class="h2">交互式对话（6）— Skills</h2>
+  <p class="lede">Skill = 告诉 Agent "能干嘛、什么时候干、具体怎么干"的说明书</p>
+  <div class="grid g3 mt-l" style="max-width:780px;margin:0 auto;gap:16px">
+    <div class="card card-accent"><h4>📋 要干什么</h4><p class="dim">Skill 定义了什么能力<br>查天气、写文案、查数据库</p></div>
+    <div class="card card-accent"><h4>? 什么时候干</h4><p class="dim">Agent 自行判断触发条件<br>用户问天气 → 触发查天气 Skill</p></div>
+    <div class="card card-accent"><h4>🔧 如何干</h4><p class="dim">Skill 绑定背后的执行方式<br>API 调用 / MCP 工具 / Python 脚本</p></div>
+  </div>
+  <div class="notes">Skill 是什么？简单说就是告诉 Agent"能干嘛、什么时候干、具体怎么干"的说明书。就像你给新员工一本操作手册：遇到客户投诉，先查订单号，再看物流状态，然后给出补偿方案。Skill 做的事情完全一样——把"怎么干"写成结构化指令，Agent 遇到对应场景就自动调用。Skill 是 Agent 能力的最小封装单元。</div>
+</section>
+
+<!-- ====== SLIDE 29: Skills Example ====== -->
+<section class="slide" data-title="Skills Example">
+  <p class="kicker">example · skill.yaml</p>
+  <h2 class="h2">Skills 示例</h2>
+  <div class="grid g2 mt-l" style="align-items:start">
+    <div class="terminal">
+      <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span>skill.yaml</span></div>
+      <pre><span class="kw">name:</span> convert_everything
+<span class="kw">description:</span> 将用户输入的文件转换格式
+
+<span class="kw">workflow:</span>
+  <span class="num">1.</span> 识别输入文件格式，调用解析脚本
+  <span class="num">2.</span> 根据用户要求翻译成指定语言
+  <span class="num">3.</span> 调用输出脚本，生成目标格式文件</pre>
+    </div>
+    <div>
+      <table class="data-table">
+        <tr><th>概念</th><th>定义</th><th>关系</th></tr>
+        <tr><td><strong>Skill</strong></td><td>单一独立能力</td><td>最小粒度，可被复用</td></tr>
+        <tr><td><strong>Workflow</strong></td><td>多个 Skill 编排的自动化流程</td><td>组合多个 Skill 形成端到端流程</td></tr>
+      </table>
+      <p class="dim mt-m">Skill 像乐高积木，Workflow 是把积木拼起来的成品模型。</p>
+    </div>
+  </div>
+  <div class="notes">这个例子很直观——convert_everything 这个 Skill 能做三件事：读文件、翻译、输出。用户说"把这个 PDF 翻译成英文再导出为 Word"，Agent 就自动调用这个 Skill 的三步流程。Skill 和 Workflow 的关系就像乐高积木和成品模型——Skill 是一块积木，Workflow 是把积木拼起来。大模型低代码平台里 Workflow 很常见，但自研代码智能体通常直接组合 Skill。本质是一样的。</div>
+</section>
+
+<!-- ====== SLIDE 30: Agent Metaphor ====== -->
+<section class="slide" data-title="Agent Metaphor">
+  <p class="kicker">metaphor · 6-step loop</p>
+  <h2 class="h2">老板说要吃西餐<br>我是助理（Agent）</h2>
+  <div class="grid g3 mt-l" style="max-width:780px;margin:0 auto;gap:16px">
+    <div class="card"><span class="tag tag-accent">① 理解意图</span><p class="dim mt-s">"老板想吃西餐" → 解析为"预订附近西餐厅"</p><p class="dim2" style="font-size:12px">LLM 推理</p></div>
+    <div class="card"><span class="tag tag-accent">② 信息收集</span><p class="dim mt-s">搜索附近西餐厅、看评分、确认人均价位</p><p class="dim2" style="font-size:12px">Search + 工具</p></div>
+    <div class="card"><span class="tag tag-accent">③ 方案制定</span><p class="dim mt-s">筛选 3 家候选，对比距离 / 评分 / 价格</p><p class="dim2" style="font-size:12px">推理排序</p></div>
+    <div class="card"><span class="tag tag-accent">④ 执行操作</span><p class="dim mt-s">预订最佳选项的座位，发送日历邀请</p><p class="dim2" style="font-size:12px">API 调用</p></div>
+    <div class="card"><span class="tag tag-accent">⑤ 结果反馈</span><p class="dim mt-s">向老板汇报：已订 X 餐厅，今晚 7 点，2 位</p><p class="dim2" style="font-size:12px">自然语言生成</p></div>
+    <div class="card card-accent"><span class="tag">⑥ 异常处理</span><p class="dim mt-s">如果满座，自动找备选餐厅并重新预订</p><p class="dim2" style="font-size:12px">自主决策闭环</p></div>
+  </div>
+  <div class="notes">这个比喻是最直观的 Agent 解释。你是老板的助理，老板说"我要吃西餐"。你不会傻站着等他告诉你第一步干嘛第二步干嘛——你会自己查附近有什么西餐厅、看评分、选最好的、订位、然后告诉老板搞定了。如果那家满了，你会自己找备选。Agent 就是做了完全一样的事情。六步闭环——理解意图、收集信息、制定方案、执行操作、汇报结果、异常处理。这就是 Agent 和普通 Bot 的本质区别：Bot 等你下指令，Agent 自己跑完全程。</div>
+</section>
+
+<!-- ====== SLIDE 31: Tool Ecosystem ====== -->
+<section class="slide" data-title="Tool Ecosystem">
+  <p class="kicker">ecosystem · 4 categories</p>
+  <h2 class="h2">核心工具生态</h2>
+  <table class="data-table mt-l">
+    <tr><th>品类</th><th>代表工具</th><th>适用人群</th><th>门槛</th></tr>
+    <tr><td><strong>CLI 命令行</strong></td><td>Codex / Claude Code</td><td>开发者</td><td>需懂命令行</td></tr>
+    <tr><td>IDE 编辑器</td><td>VS Code + Copilot / Cursor / TRAE</td><td>开发者</td><td>需懂开发</td></tr>
+    <tr><td><strong>桌面助手</strong></td><td>OpenClaw / Moltbot / Clawdbot</td><td>所有人</td><td>无需编程</td></tr>
+    <tr><td>应用平台</td><td>百炼 / 扣子 / 千帆</td><td>非开发者</td><td>拖拽搭建</td></tr>
+  </table>
+  <p class="dim mt-m">从重到轻、从专业到大众，AI 工具的门槛正在快速降低。</p>
+  <div class="notes">当前市场上 AI 工具分为四大品类。CLI 命令行——Codex 和 Claude Code 是最典型的，你在终端里用自然语言描述需求，AI 帮你生成代码。IDE 编辑器——VS Code 加 Copilot、Cursor、TRAE 这些，程序员写代码的时候 AI 在旁边实时补全。桌面助手——OpenClaw 这类，不需要写代码，通过配置就能搭建智能体。应用平台——百炼、扣子、千帆这些，完全拖拽式操作，集成到钉钉、公众号、网站。从重到轻、从专业到大众，AI 工具的门槛正在快速降低。</div>
+</section>
+
+<!-- ====== SLIDE 32: Section Divider → Ch3 ====== -->
+<section class="slide section-divider" data-title="Section: E-commerce AI">
+  <span class="num" style="font-weight:400">03</span>
+  <p class="kicker">chapter 03</p>
+  <h2 class="h2">AI工具链实战</h2>
+  <p class="lede mt-m" style="color:rgba(255,255,255,0.75)">Codex CLI → OpenClaw → Hermes Agent，从工具到平台的实战经验</p>
+  <table class="data-table mt-l" style="color:rgba(255,255,255,0.7);border-color:rgba(255,255,255,0.2)">
+    <tr><td style="color:rgba(255,255,255,0.6)">01</td><td>AI 人工智能基础</td><td>?</td></tr>
+    <tr><td style="color:rgba(255,255,255,0.6)">02</td><td>LLM 和 Agent 核心技术</td><td>?</td></tr>
+    <tr><td style="color:#fff;font-weight:700">03</td><td style="color:#fff;font-weight:700">AI工具链实战</td><td>→ 当前</td></tr>
+    <tr><td style="color:rgba(255,255,255,0.6)">04</td><td>AI 未来进化方向</td><td>待续</td></tr>
+  </table>
+  <div class="notes">好，LLM 和 Agent 的核心技术讲完了。现在进入第三部分——AI工具链实战。这部分我会分享我们实际在用的工具和架构，包括 Codex CLI、VS Code 集成、OpenClaw 桌面助手、网关架构、Hermes Agent，以及 OPC 全链路自动化的思路。这些不是纸上谈兵，而是我们正在做的事情。</div>
+</section>
+
+<!-- ====== SLIDE 33: Codex CLI ====== -->
+<section class="slide" data-title="Codex CLI">
+  <p class="kicker">tool · cli</p>
+  <h2 class="h2">传统方式（CLI）<br>Codex + GPT</h2>
+  <div class="grid g2 mt-l" style="align-items:start">
+    <div>
+      <p class="lede">Codex CLI 是 OpenAI 开源的终端 AI 编程助手。</p>
+      <p class="dim mt-m">在命令行里用自然语言描述需求，AI 帮你写代码、调试、部署。</p>
+      <div class="stack mt-m">
+        <span class="tag">? 最灵活，完全控制每个环节</span>
+        <span class="tag">? 需懂命令行和代码结构</span>
+        <span class="tag">🧑‍💻 适合高级开发者</span>
+      </div>
+    </div>
+    <div class="terminal">
+      <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span>terminal</span></div>
+      <pre><span class="cmt"># 自然语言 → 代码生成 → 运行 → 调试</span>
+<span class="fn">$</span> codex "写一个 Python 脚本分析 CSV 文件"
+
+<span class="cmt"># Codex 自动生成脚本、运行、迭代修复</span>
+<span class="fn">$</span> codex "帮我重构这个函数，提高性能"</pre>
+    </div>
+  </div>
+  <div class="notes">我们先看最传统的方式——CLI 命令行。Codex 是 OpenAI 开源的一个终端 AI 助手。你在命令行里用自然语言说"帮我写一个 Python 脚本来分析这个 CSV 文件"，它就能生成代码、运行、调试。这种方式很灵活，开发者完全控制每一个环节。但门槛也最高——你得会用命令行，得懂代码结构，得能判断 AI 生成的代码对不对。适合高级开发者。</div>
+</section>
+
+<!-- ====== SLIDE 34: VS Code + Codex ====== -->
+<section class="slide" data-title="VS Code + Codex">
+  <p class="kicker">tool · ide</p>
+  <h2 class="h2">传统方式（IDE+CLI）<br>VS Code + Codex + GPT</h2>
+  <div class="grid g2 mt-l" style="align-items:start">
+    <div>
+      <p class="lede">编辑器内自然语言对话、代码补全、文件操作、终端命令一体化完成。</p>
+      <div class="stack mt-m">
+        <span class="tag">? 不用切换窗口</span>
+        <span class="tag">? 内联代码补全和重构</span>
+        <span class="tag">? 仍需开发技能</span>
+      </div>
+    </div>
+    <div class="card card-soft center" style="min-height:180px">
+      <div style="text-align:center">
+        <p class="mono" style="font-size:48px;color:var(--accent-2)">🤖 + 🧠</p>
+        <p class="dim mt-s">边写代码边和 AI 对话<br>重构 · 测试 · 解释代码 · 一键完成</p>
+      </div>
+    </div>
+  </div>
+  <div class="notes">第二类是 IDE 加 CLI 的组合——VS Code 搭配 Codex 插件或者 Copilot。你边写代码边和 AI 对话，可以在编辑器里直接让 AI 帮你重构一个函数、生成测试用例、解释一段代码。这种方式比纯 CLI 门槛低一点，至少你不用切到黑乎乎的终端窗口。但还是需要开发技能——你得知道自己在写什么。</div>
+</section>
+
+<!-- ====== SLIDE 35: OpenClaw ====== -->
+<section class="slide" data-title="OpenClaw">
+  <p class="kicker">tool · desktop</p>
+  <h2 class="h2">OpenClaw<br>让普通人也能轻松上手</h2>
+  <p class="lede">开源桌面 AI 助手平台，核心理念是<strong>零代码</strong>——不需编程就能搭建和运行智能体。</p>
+  <div class="grid g4 mt-l">
+    <div class="card card-accent"><h4>📖 开源</h4><p class="dim">MIT 协议，可自由修改、商用</p></div>
+    <div class="card card-accent"><h4>🖱️ 零代码</h4><p class="dim">图形界面配置，无需写代码</p></div>
+    <div class="card card-accent"><h4>🐳 Docker</h4><p class="dim">一键部署，不污染本地环境</p></div>
+    <div class="card card-accent"><h4>🧩 Skill 生态</h4><p class="dim">社区贡献可复用技能模块</p></div>
+  </div>
+  <div class="notes">然后是我们重点在用的 OpenClaw。它的核心理念是一句话——让普通人也能轻松上手 AI Agent。你不需要写代码，在图形界面上配置好智能体的设定、工具和 Skill，它就能跑起来。开源、MIT 协议、支持 Docker 部署，不绑定任何平台。我们选择 OpenClaw 就是因为它的开放性和低门槛。</div>
+</section>
+
+<!-- ====== SLIDE 36: Gateway Architecture ====== -->
+<section class="slide" data-title="Gateway Architecture">
+  <p class="kicker">architecture · 3 layers</p>
+  <h2 class="h2">网关架构</h2>
+  <div class="grid g3 mt-l" style="max-width:780px;margin:0 auto;gap:16px">
+    <div class="card"><span class="tag tag-accent">公网层</span><h4 class="mt-s">用户请求入口</h4><p class="dim">API 网关 · 第三方模型 API<br>鉴权 + 限流 + HTTPS</p></div>
+    <div class="card card-accent"><span class="tag">内网层</span><h4 class="mt-s">业务逻辑调度</h4><p class="dim">模型推理 · 知识库 RAG<br>防火墙隔离 · 内网通信</p></div>
+    <div class="card"><span class="tag tag-accent">本地层</span><h4 class="mt-s">私有数据</h4><p class="dim">私有数据库 · Ollama 本地模型<br>数据不出企业 · 物理隔离</p></div>
+  </div>
+  <p class="dim mt-l">三层架构既保证了 AI 的能力，又守住了数据安全的底线。</p>
+  <div class="notes">网关架构是企业部署 AI Agent 的关键基础设施。我们分三层：公网层面向互联网——用户的请求从这里进来，API 网关做鉴权和限流，也可以调用第三方模型。内网层跑业务逻辑和模型推理——数据中台、知识库、RAG 都在这一层。本地层是最敏感的数据——客户信息、订单数据、本地部署的 Ollama 私有模型，全部不出企业内网。这个三层架构既保证了 AI 的能力，又守住了数据安全的底线。</div>
+</section>
+<!-- ====== SLIDE 37: Security + Open Source ====== -->
+<section class="slide" data-title="Security + Open Source">
+  <p class="kicker">security · open source</p>
+  <h2 class="h2">安全 + 开源</h2>
+  <div class="grid g3 mt-l" style="max-width:780px;margin:0 auto;gap:16px">
+    <div class="card card-accent"><h4>🦙 Ollama</h4><p class="dim">开源免费，一键本地部署大模型。数据完全不出本机，隐私零泄漏。</p></div>
+    <div class="card card-accent"><h4>📜 MIT 协议</h4><p class="dim">赋予所有人修改、定制、商用、二次发布 OpenClaw 源码的权利。</p></div>
+    <div class="card card-accent"><h4>🔒 完全私有化</h4><p class="dim">智能体不被平台锁定，可真正私有化、个性化、商业化。</p></div>
+    <div class="card card-accent"><h4>📦 Agent Sandbox</h4><p class="dim">Docker 容器级隔离——工具在沙箱里跑，宿主机不受任何影响。</p></div>
+  </div>
+  <div class="notes">安全和开源是企业选择 AI 方案时最关心的两个问题。Ollama 解决了隐私问题——你可以把大模型部署在自己公司的服务器上，数据完全不出门。MIT 协议解决了合规问题——你可以自由修改源代码，不用担心用着用着被平台锁死或者收费。Agent Sandbox 解决了安全问题——所有工具调用都在 Docker 容器里执行，Agent 再怎么折腾也影响不到宿主机。这才是企业级 AI 的正确打开方式。</div>
+</section>
+
+<!-- ====== SLIDE 38: Ecosystem ====== -->
+<section class="slide" data-title="Ecosystem">
+  <p class="kicker">ecosystem</p>
+  <h2 class="h2">周边生态</h2>
+  <div class="grid g4 mt-l">
+    <div class="card card-accent"><h4>🏪 Skill 市场</h4><p class="dim">OpenClaw 和 Codex 的 Skill 底层相同但需适配移植</p></div>
+    <div class="card card-accent"><h4>🐳 Docker 镜像</h4><p class="dim">整个 OpenClaw 打包成一个镜像，免去 Node/npm 依赖链</p></div>
+    <div class="card card-accent"><h4>📦 Agent Sandbox</h4><p class="dim">Docker 容器级隔离执行环境，工具在沙箱里跑</p></div>
+    <div class="card card-accent"><h4>👥 社区贡献</h4><p class="dim">开源社区持续贡献 Skill 和插件，生态日益丰富</p></div>
+  </div>
+  <div class="notes">周边生态也很重要。OpenClaw 和 Codex 的 Skill 虽然底层一样，但因为运行环境不同需要适配移植——这是目前在做的重点工作。Docker 镜像化让部署变得极简单——不需要装 Node、npm、各种依赖，一个 docker run 就全搞定。Agent Sandbox 提供安全的执行环境。开源社区的 Skill 生态也在持续增长，越来越多的可复用能力可以直接拿来用。</div>
+</section>
+
+<!-- ====== SLIDE 39: OpenClaw vs RPA ====== -->
+<section class="slide" data-title="OpenClaw vs RPA">
+  <p class="kicker">comparison · openclaw vs rpa</p>
+  <h2 class="h2">OpenClaw vs 传统 RPA</h2>
+  <table class="data-table mt-l">
+    <tr><th>维度</th><th>传统 RPA</th><th>OpenClaw Agent</th></tr>
+    <tr><td>工作方式</td><td>模拟人手动操作电脑</td><td><strong>AI 理解意图后自主规划执行</strong></td></tr>
+    <tr><td>灵活性</td><td>流程固定，变更需重录脚本</td><td><strong>自然语言即可调整任务</strong></td></tr>
+    <tr><td>适用场景</td><td>批量填表、上传下载等重复操作</td><td><strong>复杂决策、多步推理、跨系统协作</strong></td></tr>
+    <tr><td>部署方式</td><td>需安装客户端、配置环境</td><td><strong>Docker 一键部署</strong></td></tr>
+    <tr><td>维护成本</td><td>网页改版可能导致脚本失效</td><td><strong>视觉理解 + 语义定位，抗干扰性强</strong></td></tr>
+  </table>
+  <div class="notes">很多人拿 OpenClaw 和传统 RPA 对比。RPA 就是软件机器人——模拟你手动操作电脑，点击按钮、输入文字、切换页面。适合批量填表、上传下载这类重复机械操作。但 RPA 有个致命弱点——网页改个版、按钮换个位置，脚本就失效了，需要重新录制。OpenClaw 不一样——它靠 AI 理解页面内容和意图，不是硬编码坐标。网页改版了它自己能找到新的按钮位置。这是本质区别。</div>
+</section>
+
+<!-- ====== SLIDE 40: OpenClaw Dashboard ====== -->
+<section class="slide" data-title="OpenClaw Dashboard">
+  <p class="kicker">dashboard · openclaw</p>
+  <h2 class="h2">OpenClaw Dashboard</h2>
+  <div class="grid g3 mt-l" style="max-width:780px;margin:0 auto;gap:16px">
+    <div class="card card-accent"><h4>🤖 Agent 管理</h4><p class="dim">创建、配置、启停智能体实例</p></div>
+    <div class="card card-accent"><h4>💬 对话监控</h4><p class="dim">实时查看 Agent 与用户的对话</p></div>
+    <div class="card card-accent"><h4>🧩 Skill 管理</h4><p class="dim">安装、配置、调试 Skill 模块</p></div>
+    <div class="card card-accent"><h4>📊 日志分析</h4><p class="dim">Agent 执行历史和错误追踪</p></div>
+    <div class="card card-accent"><h4>📈 用量统计</h4><p class="dim">Token 消耗、API 调用次数、成本分析</p></div>
+    <div class="card card-soft center"><p class="dim">所有操作图形化<br>不需要敲代码</p></div>
+  </div>
+  <div class="notes">这是 OpenClaw 的管理后台。你可以在这里创建和配置 Agent、监控实时对话、管理 Skill 模块、查看日志和用量统计。所有操作都是图形化的，不需要敲代码。对于非技术背景的运营同学来说，这个 Dashboard 就是他们日常管理 AI 助手的主界面。</div>
+</section>
+
+<!-- ====== SLIDE 41: Hermes Agent ====== -->
+<section class="slide" data-title="Hermes Agent">
+  <p class="kicker">platform · hermes</p>
+  <h2 class="h2">Hermes Agent</h2>
+  <p class="lede">企业级智能体平台，核心差异化能力是<strong>原生内置记忆 + 自动复盘</strong>。</p>
+  <div class="grid g4 mt-l">
+    <div class="card card-accent"><h4>🧠 记忆系统</h4><p class="dim">自动记录每次任务执行的完整过程</p></div>
+    <div class="card card-accent"><h4>🔄 复盘能力</h4><p class="dim">从历史执行记录中提炼可复用 Skill</p></div>
+    <div class="card card-accent"><h4>📈 持续学习</h4><p class="dim">"越用越聪明"——同类任务自动调取历史经验</p></div>
+    <div class="card card-accent"><h4>🏢 企业级</h4><p class="dim">面向规模化运营，支持多租户多 Agent</p></div>
+  </div>
+  <div class="notes">Hermes Agent 是我们关注的另一个平台。它最大的特色是原生自带"记忆 + 复盘"能力——Agent 每次做完一件事，系统会自动把执行过程存下来，分析哪里做得好哪里可以优化，然后把这次经验提炼成一个可复用的 Skill。下次遇到同类任务，直接调用这个 Skill 就能更快更好地完成。这就像一个员工不光做事，还会写 SOP——越做越熟练、越做越快。</div>
+</section>
+
+<!-- ====== SLIDE 42: Hermes Dashboard ====== -->
+<section class="slide" data-title="Hermes Dashboard">
+  <p class="kicker">dashboard · hermes</p>
+  <h2 class="h2">Hermes Agent Dashboard</h2>
+  <div class="grid g3 mt-l" style="max-width:780px;margin:0 auto;gap:16px">
+    <div>
+      <table class="data-table">
+        <tr><th>模块</th><th>功能</th></tr>
+        <tr><td>📚 记忆库</td><td>浏览和管理 Agent 自动积累的经验知识</td></tr>
+        <tr><td>📋 复盘报告</td><td>查看每次任务执行的详细复盘分析</td></tr>
+        <tr><td>🧬 技能进化</td><td>追踪自动生成的 Skill 的版本演进</td></tr>
+        <tr><td>🔀 多 Agent 编排</td><td>管理和协调多个 Agent 协同工作</td></tr>
+      </table>
+    </div>
+    <div class="card card-soft center" style="min-height:200px">
+      <div>
+        <p class="mono" style="font-size:14px;color:var(--accent-2)">员工做事 ? Agent 写 SOP ? 下次更快</p>
+        <p class="dim mt-s">能力自我进化闭环</p>
+      </div>
+    </div>
+  </div>
+  <div class="notes">Hermes 的管理后台比 OpenClaw 多了几个特色模块：记忆库——你可以看到 Agent 自己积累下来了哪些经验；复盘报告——每次任务执行完的详细分析；技能进化——你可以看到 Agent 的能力是如何一步步增长的。多 Agent 编排也是 Hermes 的强项——可以同时管理多个不同类型的 Agent 协同工作。</div>
+</section>
+
+<!-- ====== SLIDE 43: OpenClaw vs Hermes ====== -->
+<section class="slide" data-title="OpenClaw vs Hermes">
+  <p class="kicker">comparison · head to head</p>
+  <h2 class="h2">OpenClaw vs Hermes Agent</h2>
+  <table class="data-table mt-l" style="font-size:14px">
+    <tr><th>对比维度</th><th>OpenClaw</th><th>Hermes Agent</th></tr>
+    <tr><td>定位</td><td>开源桌面助手 + 智能体运行时</td><td>企业级智能体平台</td></tr>
+    <tr><td>开源</td><td><strong>? MIT 协议，完全开放</strong></td><td>部分开源</td></tr>
+    <tr><td>部署方式</td><td>Docker 本地 / 云</td><td>云端 SaaS / 私有化部署</td></tr>
+    <tr><td>记忆能力</td><td>依赖外部 RAG 和向量数据库</td><td><strong>原生内置记忆 + 自动复盘</strong></td></tr>
+    <tr><td>Skill 复用</td><td>手动安装和配置</td><td><strong>自动从历史执行中生成</strong></td></tr>
+    <tr><td>适用规模</td><td>个人 / 小团队 / 技术爱好者</td><td>中大型企业 / 规模化运营</td></tr>
+    <tr><td>定制化</td><td><strong>极高，源码在手随便改</strong></td><td>中等，受平台能力限制</td></tr>
+  </table>
+  <p class="dim mt-m"><strong>策略：</strong>核心能力层用 OpenClaw 保证自主可控，特定场景用 Hermes 快速验证。</p>
+  <div class="notes">这两个平台各有侧重。OpenClaw 强在开源自由和定制化——源码在你手里，想怎么改怎么改，适合有技术团队的公司。Hermes 强在原生智能——记忆和复盘是自动的，开箱即用，适合想快速上手的团队。选哪个就像镀铝锌钢板选出口渠道——不同产品匹配不同市场。我们目前的策略是：核心能力层用 OpenClaw 保证自主可控，特定场景用 Hermes 快速验证。</div>
+</section>
+
+<!-- ====== SLIDE 44: OPC ====== -->
+<section class="slide" data-title="OPC">
+  <p class="kicker">opc · ai-driven automation</p>
+  <h2 class="h2">OPC</h2>
+  <p class="lede">AI 驱动的业务自动化闭环</p>
+  <table class="data-table mt-l">
+    <tr><th>行业</th><th>AI 可替代环节</th><th>自动化潜力</th></tr>
+    <tr><td>知识付费 / 在线教育</td><td>内容生成、学员答疑、作业批改、课程推荐</td><td>★★★★★</td></tr>
+    <tr><td>自媒体</td><td>选题策划、脚本生成、多平台分发、数据分析</td><td>★★★★</td></tr>
+    <tr><td><strong>电商代运营</strong></td><td>商品上下架、客服、数据报表、广告投放</td><td>★★★★★</td></tr>
+    <tr><td>软件 / AI 工作流</td><td>代码生成、测试、部署、运维监控</td><td>★★★★</td></tr>
+  </table>
+  <p class="dim mt-m"><strong>关键认知：</strong>OPC 不意味着整个公司一键全自动。先在一个业务环节跑通，再逐步扩展，是更务实的路径。</p>
+  <div class="notes">最后聊聊 OPC——AI 驱动的业务自动化闭环。哪些行业最适合？知识付费和在线教育排第一——从内容生成、学员答疑到作业批改，几乎全链路都可以 AI 化。电商代运营也是天然适合——商品上下架、客服、数据分析、广告投放，这些都是重复性高且规则明确的工作。自媒体的选题策划和多平台分发也很适合 AI 辅助。软件行业就更不用说了。但有个关键认知：OPC 不是整个公司一键全自动，那不现实。正确的做法是先选一个业务环节跑通，验证效果后再逐步扩展。</div>
+</section>
+
+<!-- ====== SLIDE 45: Section Divider → Ch4 ====== -->
+<section class="slide section-divider" data-title="Section: Future">
+  <span class="num" style="font-weight:400">04</span>
+  <p class="kicker">chapter 04</p>
+  <h2 class="h2">AI 未来进化方向</h2>
+  <p class="lede mt-m" style="color:rgba(255,255,255,0.75)">多模态 · 端侧部署 · 智能体联盟 · 垂直产业深耕</p>
+  <table class="data-table mt-l" style="color:rgba(255,255,255,0.7);border-color:rgba(255,255,255,0.2)">
+    <tr><td style="color:rgba(255,255,255,0.6)">01-03</td><td>AI 基础 · LLM · 电商实战</td><td>?</td></tr>
+    <tr><td style="color:#fff;font-weight:700">04</td><td style="color:#fff;font-weight:700">AI 未来进化方向</td><td>→ 当前</td></tr>
+  </table>
+  <div class="notes">好，电商实战部分讲完了。现在快速进入最后一个章节——AI 未来的四大进化方向。多模态、端侧部署、智能体联盟、垂直产业深耕。这些决定了下个五年 AI 会往哪里走。</div>
+</section>
+
+<!-- ====== SLIDE 46: Multimodal ====== -->
+<section class="slide" data-title="Multimodal">
+  <p class="kicker">future 1 · multimodal</p>
+  <h2 class="h2">进化方向一：多模态</h2>
+  <p class="lede">AI 不再只处理文字，而是同时理解文字、图片、声音、视频。</p>
+  <p class="dim mt-s"><strong>自动驾驶——典型多模态场景：</strong>摄像头 + 雷达 + 激光雷达 + GPS + 车联网。路况瞬息万变、容错为零，必须全模态融合。</p>
+  <table class="data-table mt-m">
+    <tr><th>品牌方案</th><th>技术路线</th><th>核心优势</th></tr>
+    <tr><td>特斯拉 FSD</td><td>纯视觉</td><td>算法强、全球覆盖广</td></tr>
+    <tr><td>华为 ADS</td><td>激光雷达</td><td>雨天夜间强、保守安全</td></tr>
+    <tr><td>小鹏 XNGP</td><td>激光雷达</td><td>城市最流畅、接管最少</td></tr>
+    <tr><td>理想 AD</td><td>多传感器融合</td><td>最平顺、不晕车、家庭友好</td></tr>
+  </table>
+  <p class="dim mt-s">医疗：影像+病历+语音 · 工业：画面+声音+传感器 · 教育：表情+笔迹+发音</p>
+  <div class="notes">未来第一个进化方向是多模态。现在的 AI 大多只能处理文字，但未来的 AI 要像人一样同时处理多种信息。最好的例子就是自动驾驶——一辆车要同时接收摄像头画面、雷达信号、激光雷达点云、GPS 位置、高精地图、语音指令，然后在毫秒级做出决策。这就是多模态的终极场景。国内四大品牌各有路线：特斯拉走纯视觉路线，算法极强但国内路况适配弱；华为走激光雷达路线，安全保守但贵；小鹏的城市自动驾驶体验最流畅；理想侧重家用舒适，最平顺不晕车。医疗、工业、教育也都在多模态方向快速进化。</div>
+</section>
+
+<!-- ====== SLIDE 47: Edge Deployment ====== -->
+<section class="slide" data-title="Edge Deployment">
+  <p class="kicker">future 2 · edge</p>
+  <h2 class="h2">进化方向二：端侧部署</h2>
+  <p class="lede">AI 不再依赖云端，在手机、PC、嵌入式设备上本地运行。</p>
+  <div class="grid g3 mt-l" style="max-width:780px;margin:0 auto;gap:16px">
+    <div class="card card-accent"><h4>✂️ 模型剪枝</h4><p class="dim">裁掉贡献小的参数<br>体积缩小 50-90%<br>精度损失小于 2%</p></div>
+    <div class="card card-accent"><h4>⚖️ 量化</h4><p class="dim">FP32 → INT8 / INT4<br>推理提速 2-4 倍<br>内存大幅下降</p></div>
+    <div class="card card-accent"><h4>🔬 蒸馏</h4><p class="dim">大模型教小模型<br>小模型获得大模型<br>90% 以上的能力</p></div>
+  </div>
+  <p class="dim mt-m"><strong>应用场景：</strong>隐私保护 · 毫秒级响应 · 离线可用 · 大小模型混搭（本地小模型 + 云端大模型兜底）</p>
+  <div class="notes">第二个进化方向是端侧部署。为什么要把 AI 放到你的手机和电脑上而不是云端？三个原因：隐私——你的数据不用上传到别人服务器；延迟——本地推理毫秒级响应；离线——没网也能用。技术上有三条路径：剪枝、量化、蒸馏。苹果的 Apple Intelligence 和 Google 的 Gemini Nano 已经在手机上跑本地 AI 了。未来是一个"大小模型混搭"的时代——你的手机上的小模型处理日常任务，遇到复杂问题自动调用云端大模型。</div>
+</section>
+
+<!-- ====== SLIDE 48: Agent Alliance ====== -->
+<section class="slide" data-title="Agent Alliance">
+  <p class="kicker">future 3 · alliance</p>
+  <h2 class="h2">进化方向三：智能体联盟</h2>
+  <div class="grid g3 mt-l" style="max-width:780px;margin:0 auto;gap:16px">
+    <div class="card card-accent"><h4>🖥️ 系统层融合</h4><p class="dim">不同操作系统/平台 Agent 互通协作<br>Windows Agent ? macOS Agent ? Linux Agent</p></div>
+    <div class="card card-accent"><h4>🏢 企业层融合</h4><p class="dim">不同企业/组织的 Agent 跨边界协作<br>品牌方 Agent ? 物流 Agent ? 平台 Agent</p></div>
+  </div>
+  <p class="lede mt-l"><strong>终极愿景：</strong>生产 Agent、物流 Agent、销售 Agent、售后 Agent 自动串联整条产业链，像人类供应链一样分工协作。</p>
+  <p class="dim mt-s">需要标准化 Agent 之间的通信协议——就像人类公司之间用 EDI 交换订单一样。</p>
+  <div class="notes">第三个方向是智能体联盟。现在的 Agent 大多是孤立的——你的 Agent 只管你的业务。但未来不同企业的 Agent 应该能自动协作。比如你是品牌方，你的订单 Agent 发现了爆款趋势，自动通知工厂的生产 Agent 加产，生产 Agent 完成后自动通知物流 Agent 发货，物流 Agent 到了自动通知你的销售 Agent 上架。全链路不需要人插手。这需要标准化 Agent 之间的通信协议——就像人类公司之间用 EDI 交换订单一样，Agent 之间需要一个类似的"Agent 间通信协议"。这是未来三到五年的重点方向。</div>
+</section>
+
+<!-- ====== SLIDE 49: Vertical Industries ====== -->
+<section class="slide" data-title="Vertical Industries">
+  <p class="kicker">future 4 · vertical</p>
+  <h2 class="h2">进化方向四：垂直产业的深耕</h2>
+  <table class="data-table mt-l">
+    <tr><th>行业</th><th>AI 应用方向</th><th>成熟度</th><th>关键壁垒</th></tr>
+    <tr><td>电商</td><td>智能客服、选品分析、自动运营</td><td>★★★★</td><td>商品知识图谱</td></tr>
+    <tr><td>制造</td><td>质检、预测性维护、供应链优化</td><td>★★★</td><td>产线数据积累</td></tr>
+    <tr><td>金融</td><td>风控、投研、合规审查、智能投顾</td><td>★★★★</td><td>监管合规</td></tr>
+    <tr><td>医疗</td><td>辅助诊断、药物研发、病历管理</td><td>★★★</td><td>临床验证</td></tr>
+    <tr><td>法律</td><td>合同审查、案例检索、文书生成</td><td>★★</td><td>法律准确性要求极高</td></tr>
+    <tr><td>教育</td><td>个性化学习、自动批改、智能辅导</td><td>★★★</td><td>教育效果评估</td></tr>
+  </table>
+  <p class="lede mt-m"><strong>核心趋势：</strong>通用大模型是底座，行业 Know-how 加私有数据才是真正的壁垒。未来不是"AI 替代行业"，而是"行业 AI 化"。</p>
+  <div class="notes">最后一个方向是垂直产业的深耕。通用大模型虽然厉害，但它不懂你的行业。就像 GPT-4 能写文章但不知道镀铝锌钢板的出口流程。行业 AI 需要的是"通用能力 + 行业知识"。电商、金融已经走在前面，法律和教育的门槛更高但潜力巨大。未来的竞争不在模型本身，而在谁拥有更深的行业理解和更多的私有数据。通用大模型是底座，行业 Know-how 才是壁垒。</div>
+</section>
+
+<!-- ====== SLIDE 50: Q&A / Thanks ====== -->
+<section class="slide center tc" data-title="Q and A">
+  <div>
+    <div class="mono" style="font-size:120px;color:var(--accent);font-weight:800;letter-spacing:-.04em">?</div>
+    <h2 class="h2">Thanks / Q&amp;A</h2>
+    <p class="lede" style="margin:14px auto">演讲人：Bruce Lin</p>
+    <p class="dim">人工智能与大语言模型——从基础到应用</p>
+    <div class="row mt-l" style="justify-content:center">
+      <span class="tag">#AI</span>
+      <span class="tag">#LLM</span>
+      <span class="tag">#Agent</span>
+      <span class="tag">#Ecommerce</span>
+    </div>
+    <p class="dim2 mt-l" style="font-size:14px">欢迎提问与交流</p>
+  </div>
+  <div class="notes">好的，以上就是今天分享的全部内容。从 AI 的基础概念到 LLM 的训练原理，从 Agent 的架构到电商实战，再到未来四大进化方向。我知道信息量很大，所以现在留出时间给大家提问。不管你是对某个概念有疑问，还是想知道这些技术在自己的业务里怎么落地，尽管问。谢谢大家。</div>
+</section>
+
+</div>
+<script src="file:///C:/Users/lin/.codex/skills/html-ppt-skill/assets/runtime.js"></script>
+</body></html>
+
+
+
+
+
+
+
+
+
+
