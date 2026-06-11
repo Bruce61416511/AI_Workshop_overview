@@ -519,6 +519,7 @@
   <div style="display:flex;justify-content:center;align-items:center;margin-top:30px">
     <img src="tool-ecosystem.png" alt="核心工具生态" style="max-width:85%;max-height:70vh;object-fit:contain">
   </div>
+  <div class="notes">这一页展示的是 AI 核心工具生态的全景图。四大赛道：模型即服务——OpenAI、Anthropic、Google 提供基础模型 API；向量数据库——Pinecone、Chroma、Weaviate 专门做语义检索；AI IDE——Cursor、Windsurf、Codex 让 AI 帮写代码；Agent 框架——LangChain、AutoGen 让 AI 学会调用工具、规划任务。这张图的价值在于让你看清楚：做 AI 应用到底需要哪些积木。</div>
 </section>
 <!-- ====== SLIDE 32: Section Divider → Ch3 ====== -->
 <section class="slide" data-title="Section: E-commerce AI">
@@ -603,6 +604,8 @@
   </div>
   <style>#pain28b:checked ~ #pain28b-content{display:block!important}</style>
 
+  <div class="notes">我们先回到原点——没有 AI 的时候怎么写代码。传统开发是一个漫长的流水线：需求澄清→设计→编码→测试→部署，每个环节都是人做。工具再好也只是工具——VS Code 不会帮你写、IntelliJ 不会帮你设计。一个需求从提出到上线，动辄以周计。而且这个链条上有信息损耗：产品经理理解的和工程师实现的对不齐，测试发现的 Bug 和开发理解的不一样。最关键是——每个环节都需要懂代码的人。这就引出了第一个痛点：零代码的人怎么办？点开看一下。</div>
+
 </section>
 
 <!-- ====== SLIDE: Vibe Coding ====== -->
@@ -675,6 +678,8 @@
   </div>
 
 
+  <div class="notes">这就是 Vibe Coding。什么叫 Vibe？就是你用自然语言描述你的想法，AI 帮你写代码。不是像以前那样"想清楚→画流程图→敲代码"，而是"说需求→AI 给你代码"。三个核心能力：第一，AI 全自动新写代码——你说"给我一个用户登录页面"，它直接生成；第二，AI 预测下一步——你在写代码，它猜你要写什么，Tab 一下补全；第三，AI 优化代码——选中一段代码，让它重构、优化性能、提高可读性。下面列了五个主流工具：Copilot、Cursor、Windsurf、Codex CLI、Claude Code。再下面是常用的 Vibe Coding Skills——superpowers 做规划和调试、gstack 搭全栈骨架、uiuxpromax 提升 UI 质感等等。核心转变就是：重心从"怎么写"回到"做什么"。</div>
+
 </section>
 
 <!-- ====== SLIDE: Domestic Tools ====== -->
@@ -716,6 +721,8 @@
   </div>
   <style>#pain31:checked ~ #pain31-content{display:block!important}</style>
 
+  <div class="notes">刚才讲了国际上的 Vibe Coding 工具，那国内呢？阿里和腾讯也入场了。Qoder 是阿里的本地 IDE Agent，对标的是 Cursor 和 Codex CLI，特色是 Spec 驱动开发——你先写 Spec 规格书，AI 按规格干活，还有 Repo Wiki 帮你理解整个代码库。CodeBuddy 是腾讯的云端全栈平台，对标 Replit 和 Bolt.new，最大的好处是免环境——打开浏览器就能开发，而且和微信、企微、腾讯云生态深度打通。那和国际工具比有什么优势？四大点：中文+国产生态支持、数据不出境合规、云服务一键集成、成本更便宜。一句话总结：国际工具强在模型聪明，国产工具强在生态落地。</div>
+
 </section>
 
 <!-- ====== SLIDE: OpenClaw Intro ====== -->
@@ -728,6 +735,7 @@
   <div style="max-width:780px;margin:12px auto 0;text-align:left">
     <p class="dim" style="font-size:13px;line-height:1.6"><strong>远见：</strong>"意图为王"而非"代码为王"——告诉 AI 你想实现什么，而不是教它怎么写代码。<br><strong>定位：</strong>不止服务开发者，更要普惠所有人。从 9 岁孩子到 70 岁老人，从创业者到职场人士，零代码也能上手。</p>
   </div>
+  <div class="notes">好，Vibe Coding 聊完了，但它只能帮你写代码。有一个更激进的工具叫 OpenClaw，它的愿景是让普通人也能轻松上手。创始人 Peter Steinberger 说过一句很狂的话：代码已死，意图永生。你不需要会写代码，只需要告诉 AI 你想实现什么。OpenClaw 的用户群从 9 岁小孩到 70 岁老人都有，创业者用它做 SaaS 变现，职场人用它做自动化。它打破了自动化是开发者专属的偏见。</div>
 </section>
 
 <!-- ====== SLIDE: Gateway Architecture (OpenClaw) ====== -->
@@ -737,6 +745,7 @@
   <div style="display:flex;justify-content:center;align-items:center;margin-top:20px">
     <img src="assets/slide35_img1.png" alt="网关架构" style="max-width:90%;max-height:68vh;object-fit:contain">
   </div>
+  <div class="notes">这是 OpenClaw 的网关架构图。核心思想：OpenClaw 是中间网关，连接你和各种平台——微信、飞书、钉钉、邮件、浏览器、文件系统。你在任何一个平台发消息，它理解意图后调动相应工具执行。就像一个万能翻译器，把不同平台协议统一，让你用自然语言操控一切。</div>
 </section>
 
 <!-- ====== SLIDE: Security + Open Source (OpenClaw) ====== -->
@@ -746,6 +755,7 @@
   <div style="display:flex;justify-content:center;align-items:center;margin-top:20px">
     <img src="assets/slide36_img1.png" alt="安全+开源" style="max-width:90%;max-height:68vh;object-fit:contain">
   </div>
+  <div class="notes">OpenClaw 的安全模型和开源策略。安全上采用沙箱隔离——每个任务在独立环境运行，不影响主系统。权限控制很细，可配置访问权限。核心代码全部开源在 GitHub，你可以自己部署、自己定制，数据完全掌控在自己手里——这对企业用户非常重要。</div>
 </section>
 
 <!-- ====== SLIDE: Ecosystem (OpenClaw) ====== -->
@@ -755,6 +765,7 @@
   <div style="display:flex;justify-content:center;align-items:center;margin-top:20px">
     <img src="assets/slide37_img1.png" alt="周边生态" style="max-width:90%;max-height:68vh;object-fit:contain">
   </div>
+  <div class="notes">OpenClaw 的周边生态。它不只是一个人工智能助手，而是一个生态平台——支持 20 多种消息平台（微信、飞书、钉钉、Telegram、Discord），可对接各种 AI 模型，还能通过插件系统扩展功能。右边是它的技能市场——用户贡献的现成技能可以直接安装使用。这个生态让 OpenClaw 的能力几乎是无限的。</div>
 </section>
 
 <!-- ====== SLIDE: OpenClaw Limitations ====== -->
@@ -769,6 +780,7 @@
   </div>
   <p class="lede mt-l" style="text-align:center"><strong>于是，Hermes Agent 应运而生 →</strong></p>
   <p class="dim mt-s" style="text-align:center">原生记忆 + 自动复盘 + 多 Agent 编排 + 开箱即用</p>
+  <div class="notes">但 OpenClaw 不是完美的。四个核心局限：缺乏原生记忆——每次任务从零开始，不会自动积累经验；无复盘能力——任务完成就结束了，不会总结优化，同样错误下次照犯；多 Agent 编排弱——主要是一个 Agent 干活，协同管理困难；定制门槛高——虽然开源自由，但深度定制仍需技术团队。这些局限引出了 Hermes Agent——它在记忆和复盘上做了原生设计。</div>
 </section>
 
 <!-- ====== SLIDE: Hermes Intro ====== -->
@@ -778,6 +790,7 @@
   <div style="display:flex;justify-content:center;align-items:center;margin-top:24px">
     <img src="assets/hermes-intro.png" alt="Hermes Agent" style="max-width:85%;max-height:65vh;object-fit:contain">
   </div>
+  <div class="notes">这就是 Hermes Agent。如果说 OpenClaw 是执行型管家——你下命令它干活，那 Hermes 就是学习型大脑——它会从每次任务中总结经验、自动提炼成技能文件、跨会话加载复用。Hermes 用了 GEPA 算法做离线优化和技能进化。记忆系统用 SQLite 等多层存储自动管理，知识是动态积累、跨会话继承的。简单说：OpenClaw 每次干活都要重新教，Hermes 教一次就记住了，下次直接复用。</div>
 </section>
 
 <!-- ====== SLIDE: OpenClaw vs Hermes Compare ====== -->
@@ -794,6 +807,9 @@
     <tr><td>自动化程度</td><td>执行级自动化（怎么做）</td><td>策略/技能级自动化（怎么优化）</td></tr>
   </table>
   <p class="lede mt-m" style="text-align:center"><strong>不是替代关系，而是并存互补</strong></p>
+  <div class="notes">这张表把两者的差异讲清楚了。看最关键的几行：执行后——OpenClaw 干完活就结束了，Hermes 会自动提炼经验生成技能文件；核心机制——OpenClaw 依赖人工写好维护技能库，Hermes 自动生成和进化技能；知识沉淀——一个靠静态 Markdown 文件手动整理，一个动态积累跨会话继承。但有一点必须强调：它们的基础功能高度重叠——定时调度、子 Agent 委派、浏览器自动化、20+ 平台消息网关，两者都有。真正的核心差异发生在任务执行之后。另外它们不是替代关系，是并存互补。</div>
+
+  <div class="notes">这张表把两者的差异讲清楚。执行后——OpenClaw 干完活就结束，Hermes 自动提炼经验生成技能文件。核心机制——OpenClaw 依赖人工维护技能库，Hermes 自动生成和进化技能。知识沉淀——一个靠静态 Markdown 手动整理，一个动态积累跨会话继承。但必须强调：基础功能高度重叠——定时调度、子Agent委派、浏览器自动化、20+平台消息网关，两者都有。真正的核心差异发生在任务执行之后。它们不是替代关系，是并存互补。</div>
 </section>
 
 <!-- ====== SLIDE: Why Not Replace ====== -->
@@ -812,6 +828,7 @@
   <div style="max-width:780px;margin:16px auto 0;padding:12px 16px;border-left:3px solid var(--accent);background:#f8fafc">
     <p class="dim" style="font-size:13px;line-height:1.6"><strong>核心结论：</strong>功能重叠 ≠ 互相替代。它们解决了完全不同维度的"痛点"：<br>OpenClaw 解决的问题是："我怎么让 AI 帮我干所有活？"<br>Hermes 解决的问题是："我怎么让 AI 不用天天手把手教、干得越多学得越快？"</p>
   </div>
+  <div class="notes">这张表告诉你如何选工具。需要连 50 个平台，选 OpenClaw。需要开箱即用现成技能，选 OpenClaw。想要越用越懂你的 AI，选 Hermes。想云端零成本部署，选 Hermes。希望 AI 能自己复盘优化生成新技能，选 Hermes。需要强控制强审计的确定性结果，选 OpenClaw。核心结论：功能重叠不等于互相替代。OpenClaw 解决怎么让 AI 帮我干所有活，Hermes 解决怎么让 AI 不用天天手把手教、越干越聪明——两个维度的痛点完全不同。</div>
 </section><!-- SLIDE: Toolchain Summary -->
 <section class="slide" data-title="Toolchain Summary">
   <p class="kicker">toolchain · 12/12</p>
@@ -835,6 +852,7 @@
     </div>
   </div>
   <p class="dim mt-l" style="text-align:center">下一章：AI 未来进化方向 →</p>
+  <div class="notes">好，AI 工具链这一章总结为四点。第一，四阶段进化：手动编码→Vibe Coding→零代码平台→自主学习 Agent，从人写代码到 AI 自主干活的进化路线。第二，两条主线：OpenClaw 开源万能管家连接一切，Hermes 自我进化专家越用越聪明。第三，核心认知：不是替代关系而是并存互补，按场景选择，组合使用效果最佳。第四，底层趋势：从代码为王到意图为王，AI 工具让每个人都能成为创造者。下一章看 AI 未来四个进化方向。</div>
 </section>
 
 <!-- ====== SLIDE 45: Section Divider → Ch4 ====== -->
@@ -920,6 +938,9 @@
 
 
 
+
+
+
 
 
 
