@@ -745,222 +745,35 @@
 <!-- ====== SLIDE: OpenClaw vs Hermes Compare ====== -->
 <section class="slide" data-title="OpenClaw vs Hermes">
   <p class="kicker">compare · openclaw vs hermes</p>
-  <h2 class="h2">OpenClaw vs Hermes Agent（不是对手）</h2>
+  <h2 class="h2">OpenClaw vs Hermes Agent</h2>
+  <p class="dim mt-s" style="text-align:left;font-size:13px">基础功能高度重叠，定时调度、子 Agent 委派、浏览器自动化、20+ 平台消息网关——两者相当。<br>真正的核心差异发生在<strong>任务执行之后</strong>。</p>
+  <table class="data-table mt-m">
+    <tr><th>特性</th><th>OpenClaw</th><th>Hermes</th></tr>
+    <tr><td>执行后</td><td>不会</td><td>自动提炼经验、生成技能文件、跨会话加载复用</td></tr>
+    <tr><td>核心机制</td><td>依赖人工写好的技能库（需维护）</td><td>自动生成+进化技能（GEPA 算法+离线优化）</td></tr>
+    <tr><td>调度控制</td><td>指挥子 Agent 干活，任务完成即结束</td><td>调用子 Agent 完成任务 + 自动记忆执行经验并优化</td></tr>
+    <tr><td>知识沉淀</td><td>静态 Markdown/JSON 文件，需手动整理</td><td>动态积累+跨会话继承，SQLite 等多层记忆自动管理</td></tr>
+    <tr><td>自动化程度</td><td>执行级自动化（怎么做）</td><td>策略/技能级自动化（怎么优化）</td></tr>
+  </table>
+  <p class="lede mt-m" style="text-align:center"><strong>不是替代关系，而是并存互补</strong></p>
+</section>
+
+<!-- ====== SLIDE: Why Not Replace ====== -->
+<section class="slide" data-title="Why Not Replace">
+  <p class="kicker">compare · choose</p>
+  <h2 class="h2">为什么不能互相替代？</h2>
   <table class="data-table mt-l">
-    <tr><th>维度</th><th>OpenClaw</th><th>Hermes Agent</th></tr>
-    <tr><td>定位</td><td>开源桌面 AI 助手平台</td><td>记忆+复盘的原生智能体</td></tr>
-    <tr><td>记忆能力</td><td>❌ 无原生记忆</td><td>✅ 自动积累经验</td></tr>
-    <tr><td>复盘能力</td><td>❌ 无自动复盘</td><td>✅ 任务结束自动总结优化</td></tr>
-    <tr><td>多 Agent 编排</td><td>⚠️ 较弱</td><td>✅ 原生多 Agent 协同</td></tr>
-    <tr><td>上手门槛</td><td>⚠️ 需技术团队定制</td><td>✅ 开箱即用</td></tr>
-    <tr><td>开源协议</td><td>✅ MIT 开源自由修改</td><td>⚠️ 部分开源</td></tr>
-    <tr><td>适合场景</td><td>有技术团队的深度定制</td><td>快速落地、持续进化的业务</td></tr>
+    <tr><th>你的需求</th><th>更合适的工具</th></tr>
+    <tr><td>需要在微信/飞书/钉钉里随时喊 AI 干活，需要连 50 个平台</td><td>OpenClaw（核心优势）</td></tr>
+    <tr><td>需要一个开箱即用的现成技能，不想等 AI 慢慢学</td><td>OpenClaw（技能多现成）</td></tr>
+    <tr><td>想要一个越用越懂你、自动沉淀个人习惯的 AI</td><td>Hermes（学你的专属 AI）</td></tr>
+    <tr><td>想在云端 Serverless 零成本部署，或者需要低成本跑在 Docker/SSH 后端</td><td>Hermes（原生 Serverless 生态）</td></tr>
+    <tr><td>希望 AI 能自己复盘、优化、生成新技能，做你的"学习型助理"</td><td>Hermes（核心就是学习循环）</td></tr>
+    <tr><td>需要强控制、强审计、确定性的执行结果</td><td>OpenClaw（安全模型更可控）</td></tr>
   </table>
-  <p class="lede mt-m" style="text-align:center"><strong>策略：</strong>核心能力用 OpenClaw 保证自主可控，特定场景用 Hermes 快速验证</p>
 </section>
 
-<!-- ====== SLIDE 33: Codex CLI ====== -->
-<section class="slide" data-title="Codex CLI">
-  <p class="kicker">tool · cli</p>
-  <h2 class="h2">传统方式（CLI）<br>Codex + GPT</h2>
-  <div class="grid g2 mt-l" style="align-items:start">
-    <div>
-      <p class="lede">Codex CLI 是 OpenAI 开源的终端 AI 编程助手。</p>
-      <p class="dim mt-m">在命令行里用自然语言描述需求，AI 帮你写代码、调试、部署。</p>
-      <div class="stack mt-m">
-        <span class="tag">? 最灵活，完全控制每个环节</span>
-        <span class="tag">? 需懂命令行和代码结构</span>
-        <span class="tag">🧑‍💻 适合高级开发者</span>
-      </div>
-    </div>
-    <div class="terminal">
-      <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span>terminal</span></div>
-      <pre><span class="cmt"># 自然语言 → 代码生成 → 运行 → 调试</span>
-<span class="fn">$</span> codex "写一个 Python 脚本分析 CSV 文件"
 
-<span class="cmt"># Codex 自动生成脚本、运行、迭代修复</span>
-<span class="fn">$</span> codex "帮我重构这个函数，提高性能"</pre>
-    </div>
-  </div>
-  <div class="notes">我们先看最传统的方式——CLI 命令行。Codex 是 OpenAI 开源的一个终端 AI 助手。你在命令行里用自然语言说"帮我写一个 Python 脚本来分析这个 CSV 文件"，它就能生成代码、运行、调试。这种方式很灵活，开发者完全控制每一个环节。但门槛也最高——你得会用命令行，得懂代码结构，得能判断 AI 生成的代码对不对。适合高级开发者。</div>
-</section>
-
-<!-- ====== SLIDE 34: VS Code + Codex ====== -->
-<section class="slide" data-title="VS Code + Codex">
-  <p class="kicker">tool · ide</p>
-  <h2 class="h2">传统方式（IDE+CLI）<br>VS Code + Codex + GPT</h2>
-  <div class="grid g2 mt-l" style="align-items:start">
-    <div>
-      <p class="lede">编辑器内自然语言对话、代码补全、文件操作、终端命令一体化完成。</p>
-      <div class="stack mt-m">
-        <span class="tag">? 不用切换窗口</span>
-        <span class="tag">? 内联代码补全和重构</span>
-        <span class="tag">? 仍需开发技能</span>
-      </div>
-    </div>
-    <div class="card card-soft center" style="min-height:180px">
-      <div style="text-align:center">
-        <p class="mono" style="font-size:48px;color:var(--accent-2)">🤖 + 🧠</p>
-        <p class="dim mt-s">边写代码边和 AI 对话<br>重构 · 测试 · 解释代码 · 一键完成</p>
-      </div>
-    </div>
-  </div>
-  <div class="notes">第二类是 IDE 加 CLI 的组合——VS Code 搭配 Codex 插件或者 Copilot。你边写代码边和 AI 对话，可以在编辑器里直接让 AI 帮你重构一个函数、生成测试用例、解释一段代码。这种方式比纯 CLI 门槛低一点，至少你不用切到黑乎乎的终端窗口。但还是需要开发技能——你得知道自己在写什么。</div>
-</section>
-
-<!-- ====== SLIDE 35: OpenClaw ====== -->
-<section class="slide" data-title="OpenClaw">
-  <p class="kicker">tool · desktop</p>
-  <h2 class="h2">OpenClaw<br>让普通人也能轻松上手</h2>
-  <p class="lede">开源桌面 AI 助手平台，核心理念是<strong>零代码</strong>——不需编程就能搭建和运行智能体。</p>
-  <div class="grid g4 mt-l">
-    <div class="card card-accent"><h4>📖 开源</h4><p class="dim">MIT 协议，可自由修改、商用</p></div>
-    <div class="card card-accent"><h4>🖱️ 零代码</h4><p class="dim">图形界面配置，无需写代码</p></div>
-    <div class="card card-accent"><h4>🐳 Docker</h4><p class="dim">一键部署，不污染本地环境</p></div>
-    <div class="card card-accent"><h4>🧩 Skill 生态</h4><p class="dim">社区贡献可复用技能模块</p></div>
-  </div>
-  <div class="notes">然后是我们重点在用的 OpenClaw。它的核心理念是一句话——让普通人也能轻松上手 AI Agent。你不需要写代码，在图形界面上配置好智能体的设定、工具和 Skill，它就能跑起来。开源、MIT 协议、支持 Docker 部署，不绑定任何平台。我们选择 OpenClaw 就是因为它的开放性和低门槛。</div>
-</section>
-
-<!-- ====== SLIDE 36: Gateway Architecture ====== -->
-<section class="slide" data-title="Gateway Architecture">
-  <p class="kicker">architecture · 3 layers</p>
-  <h2 class="h2">网关架构</h2>
-  <div class="grid g3 mt-l" style="max-width:780px;margin:0 auto;gap:16px">
-    <div class="card"><span class="tag tag-accent">公网层</span><h4 class="mt-s">用户请求入口</h4><p class="dim">API 网关 · 第三方模型 API<br>鉴权 + 限流 + HTTPS</p></div>
-    <div class="card card-accent"><span class="tag">内网层</span><h4 class="mt-s">业务逻辑调度</h4><p class="dim">模型推理 · 知识库 RAG<br>防火墙隔离 · 内网通信</p></div>
-    <div class="card"><span class="tag tag-accent">本地层</span><h4 class="mt-s">私有数据</h4><p class="dim">私有数据库 · Ollama 本地模型<br>数据不出企业 · 物理隔离</p></div>
-  </div>
-  <p class="dim mt-l">三层架构既保证了 AI 的能力，又守住了数据安全的底线。</p>
-  <div class="notes">网关架构是企业部署 AI Agent 的关键基础设施。我们分三层：公网层面向互联网——用户的请求从这里进来，API 网关做鉴权和限流，也可以调用第三方模型。内网层跑业务逻辑和模型推理——数据中台、知识库、RAG 都在这一层。本地层是最敏感的数据——客户信息、订单数据、本地部署的 Ollama 私有模型，全部不出企业内网。这个三层架构既保证了 AI 的能力，又守住了数据安全的底线。</div>
-</section>
-<!-- ====== SLIDE 37: Security + Open Source ====== -->
-<section class="slide" data-title="Security + Open Source">
-  <p class="kicker">security · open source</p>
-  <h2 class="h2">安全 + 开源</h2>
-  <div class="grid g3 mt-l" style="max-width:780px;margin:0 auto;gap:16px">
-    <div class="card card-accent"><h4>🦙 Ollama</h4><p class="dim">开源免费，一键本地部署大模型。数据完全不出本机，隐私零泄漏。</p></div>
-    <div class="card card-accent"><h4>📜 MIT 协议</h4><p class="dim">赋予所有人修改、定制、商用、二次发布 OpenClaw 源码的权利。</p></div>
-    <div class="card card-accent"><h4>🔒 完全私有化</h4><p class="dim">智能体不被平台锁定，可真正私有化、个性化、商业化。</p></div>
-    <div class="card card-accent"><h4>📦 Agent Sandbox</h4><p class="dim">Docker 容器级隔离——工具在沙箱里跑，宿主机不受任何影响。</p></div>
-  </div>
-  <div class="notes">安全和开源是企业选择 AI 方案时最关心的两个问题。Ollama 解决了隐私问题——你可以把大模型部署在自己公司的服务器上，数据完全不出门。MIT 协议解决了合规问题——你可以自由修改源代码，不用担心用着用着被平台锁死或者收费。Agent Sandbox 解决了安全问题——所有工具调用都在 Docker 容器里执行，Agent 再怎么折腾也影响不到宿主机。这才是企业级 AI 的正确打开方式。</div>
-</section>
-
-<!-- ====== SLIDE 38: Ecosystem ====== -->
-<section class="slide" data-title="Ecosystem">
-  <p class="kicker">ecosystem</p>
-  <h2 class="h2">周边生态</h2>
-  <div class="grid g4 mt-l">
-    <div class="card card-accent"><h4>🏪 Skill 市场</h4><p class="dim">OpenClaw 和 Codex 的 Skill 底层相同但需适配移植</p></div>
-    <div class="card card-accent"><h4>🐳 Docker 镜像</h4><p class="dim">整个 OpenClaw 打包成一个镜像，免去 Node/npm 依赖链</p></div>
-    <div class="card card-accent"><h4>📦 Agent Sandbox</h4><p class="dim">Docker 容器级隔离执行环境，工具在沙箱里跑</p></div>
-    <div class="card card-accent"><h4>👥 社区贡献</h4><p class="dim">开源社区持续贡献 Skill 和插件，生态日益丰富</p></div>
-  </div>
-  <div class="notes">周边生态也很重要。OpenClaw 和 Codex 的 Skill 虽然底层一样，但因为运行环境不同需要适配移植——这是目前在做的重点工作。Docker 镜像化让部署变得极简单——不需要装 Node、npm、各种依赖，一个 docker run 就全搞定。Agent Sandbox 提供安全的执行环境。开源社区的 Skill 生态也在持续增长，越来越多的可复用能力可以直接拿来用。</div>
-</section>
-
-<!-- ====== SLIDE 39: OpenClaw vs RPA ====== -->
-<section class="slide" data-title="OpenClaw vs RPA">
-  <p class="kicker">comparison · openclaw vs rpa</p>
-  <h2 class="h2">OpenClaw vs 传统 RPA</h2>
-  <table class="data-table mt-l">
-    <tr><th>维度</th><th>传统 RPA</th><th>OpenClaw Agent</th></tr>
-    <tr><td>工作方式</td><td>模拟人手动操作电脑</td><td><strong>AI 理解意图后自主规划执行</strong></td></tr>
-    <tr><td>灵活性</td><td>流程固定，变更需重录脚本</td><td><strong>自然语言即可调整任务</strong></td></tr>
-    <tr><td>适用场景</td><td>批量填表、上传下载等重复操作</td><td><strong>复杂决策、多步推理、跨系统协作</strong></td></tr>
-    <tr><td>部署方式</td><td>需安装客户端、配置环境</td><td><strong>Docker 一键部署</strong></td></tr>
-    <tr><td>维护成本</td><td>网页改版可能导致脚本失效</td><td><strong>视觉理解 + 语义定位，抗干扰性强</strong></td></tr>
-  </table>
-  <div class="notes">很多人拿 OpenClaw 和传统 RPA 对比。RPA 就是软件机器人——模拟你手动操作电脑，点击按钮、输入文字、切换页面。适合批量填表、上传下载这类重复机械操作。但 RPA 有个致命弱点——网页改个版、按钮换个位置，脚本就失效了，需要重新录制。OpenClaw 不一样——它靠 AI 理解页面内容和意图，不是硬编码坐标。网页改版了它自己能找到新的按钮位置。这是本质区别。</div>
-</section>
-
-<!-- ====== SLIDE 40: OpenClaw Dashboard ====== -->
-<section class="slide" data-title="OpenClaw Dashboard">
-  <p class="kicker">dashboard · openclaw</p>
-  <h2 class="h2">OpenClaw Dashboard</h2>
-  <div class="grid g3 mt-l" style="max-width:780px;margin:0 auto;gap:16px">
-    <div class="card card-accent"><h4>🤖 Agent 管理</h4><p class="dim">创建、配置、启停智能体实例</p></div>
-    <div class="card card-accent"><h4>💬 对话监控</h4><p class="dim">实时查看 Agent 与用户的对话</p></div>
-    <div class="card card-accent"><h4>🧩 Skill 管理</h4><p class="dim">安装、配置、调试 Skill 模块</p></div>
-    <div class="card card-accent"><h4>📊 日志分析</h4><p class="dim">Agent 执行历史和错误追踪</p></div>
-    <div class="card card-accent"><h4>📈 用量统计</h4><p class="dim">Token 消耗、API 调用次数、成本分析</p></div>
-    <div class="card card-soft center"><p class="dim">所有操作图形化<br>不需要敲代码</p></div>
-  </div>
-  <div class="notes">这是 OpenClaw 的管理后台。你可以在这里创建和配置 Agent、监控实时对话、管理 Skill 模块、查看日志和用量统计。所有操作都是图形化的，不需要敲代码。对于非技术背景的运营同学来说，这个 Dashboard 就是他们日常管理 AI 助手的主界面。</div>
-</section>
-
-<!-- ====== SLIDE 41: Hermes Agent ====== -->
-<section class="slide" data-title="Hermes Agent">
-  <p class="kicker">platform · hermes</p>
-  <h2 class="h2">Hermes Agent</h2>
-  <p class="lede">企业级智能体平台，核心差异化能力是<strong>原生内置记忆 + 自动复盘</strong>。</p>
-  <div class="grid g4 mt-l">
-    <div class="card card-accent"><h4>🧠 记忆系统</h4><p class="dim">自动记录每次任务执行的完整过程</p></div>
-    <div class="card card-accent"><h4>🔄 复盘能力</h4><p class="dim">从历史执行记录中提炼可复用 Skill</p></div>
-    <div class="card card-accent"><h4>📈 持续学习</h4><p class="dim">"越用越聪明"——同类任务自动调取历史经验</p></div>
-    <div class="card card-accent"><h4>🏢 企业级</h4><p class="dim">面向规模化运营，支持多租户多 Agent</p></div>
-  </div>
-  <div class="notes">Hermes Agent 是我们关注的另一个平台。它最大的特色是原生自带"记忆 + 复盘"能力——Agent 每次做完一件事，系统会自动把执行过程存下来，分析哪里做得好哪里可以优化，然后把这次经验提炼成一个可复用的 Skill。下次遇到同类任务，直接调用这个 Skill 就能更快更好地完成。这就像一个员工不光做事，还会写 SOP——越做越熟练、越做越快。</div>
-</section>
-
-<!-- ====== SLIDE 42: Hermes Dashboard ====== -->
-<section class="slide" data-title="Hermes Dashboard">
-  <p class="kicker">dashboard · hermes</p>
-  <h2 class="h2">Hermes Agent Dashboard</h2>
-  <div class="grid g3 mt-l" style="max-width:780px;margin:0 auto;gap:16px">
-    <div>
-      <table class="data-table">
-        <tr><th>模块</th><th>功能</th></tr>
-        <tr><td>📚 记忆库</td><td>浏览和管理 Agent 自动积累的经验知识</td></tr>
-        <tr><td>📋 复盘报告</td><td>查看每次任务执行的详细复盘分析</td></tr>
-        <tr><td>🧬 技能进化</td><td>追踪自动生成的 Skill 的版本演进</td></tr>
-        <tr><td>🔀 多 Agent 编排</td><td>管理和协调多个 Agent 协同工作</td></tr>
-      </table>
-    </div>
-    <div class="card card-soft center" style="min-height:200px">
-      <div>
-        <p class="mono" style="font-size:14px;color:var(--accent-2)">员工做事 ? Agent 写 SOP ? 下次更快</p>
-        <p class="dim mt-s">能力自我进化闭环</p>
-      </div>
-    </div>
-  </div>
-  <div class="notes">Hermes 的管理后台比 OpenClaw 多了几个特色模块：记忆库——你可以看到 Agent 自己积累下来了哪些经验；复盘报告——每次任务执行完的详细分析；技能进化——你可以看到 Agent 的能力是如何一步步增长的。多 Agent 编排也是 Hermes 的强项——可以同时管理多个不同类型的 Agent 协同工作。</div>
-</section>
-
-<!-- ====== SLIDE 43: OpenClaw vs Hermes ====== -->
-<section class="slide" data-title="OpenClaw vs Hermes">
-  <p class="kicker">comparison · head to head</p>
-  <h2 class="h2">OpenClaw vs Hermes Agent（不是对手）</h2>
-  <table class="data-table mt-l" style="font-size:14px">
-    <tr><th>对比维度</th><th>OpenClaw</th><th>Hermes Agent</th></tr>
-    <tr><td>定位</td><td>开源桌面助手 + 智能体运行时</td><td>企业级智能体平台</td></tr>
-    <tr><td>开源</td><td><strong>? MIT 协议，完全开放</strong></td><td>部分开源</td></tr>
-    <tr><td>部署方式</td><td>Docker 本地 / 云</td><td>云端 SaaS / 私有化部署</td></tr>
-    <tr><td>记忆能力</td><td>依赖外部 RAG 和向量数据库</td><td><strong>原生内置记忆 + 自动复盘</strong></td></tr>
-    <tr><td>Skill 复用</td><td>手动安装和配置</td><td><strong>自动从历史执行中生成</strong></td></tr>
-    <tr><td>适用规模</td><td>个人 / 小团队 / 技术爱好者</td><td>中大型企业 / 规模化运营</td></tr>
-    <tr><td>定制化</td><td><strong>极高，源码在手随便改</strong></td><td>中等，受平台能力限制</td></tr>
-  </table>
-  <p class="dim mt-m"><strong>策略：</strong>核心能力层用 OpenClaw 保证自主可控，特定场景用 Hermes 快速验证。</p>
-  <div class="notes">这两个平台各有侧重。OpenClaw 强在开源自由和定制化——源码在你手里，想怎么改怎么改，适合有技术团队的公司。Hermes 强在原生智能——记忆和复盘是自动的，开箱即用，适合想快速上手的团队。选哪个就像镀铝锌钢板选出口渠道——不同产品匹配不同市场。我们目前的策略是：核心能力层用 OpenClaw 保证自主可控，特定场景用 Hermes 快速验证。</div>
-</section>
-
-<!-- ====== SLIDE 44: OPC ====== -->
-<section class="slide" data-title="OPC">
-  <p class="kicker">opc · ai-driven automation</p>
-  <h2 class="h2">OPC</h2>
-  <p class="lede">AI 驱动的业务自动化闭环</p>
-  <table class="data-table mt-l">
-    <tr><th>行业</th><th>AI 可替代环节</th><th>自动化潜力</th></tr>
-    <tr><td>知识付费 / 在线教育</td><td>内容生成、学员答疑、作业批改、课程推荐</td><td>★★★★★</td></tr>
-    <tr><td>自媒体</td><td>选题策划、脚本生成、多平台分发、数据分析</td><td>★★★★</td></tr>
-    <tr><td><strong>电商代运营</strong></td><td>商品上下架、客服、数据报表、广告投放</td><td>★★★★★</td></tr>
-    <tr><td>软件 / AI 工作流</td><td>代码生成、测试、部署、运维监控</td><td>★★★★</td></tr>
-  </table>
-  <p class="dim mt-m"><strong>关键认知：</strong>OPC 不意味着整个公司一键全自动。先在一个业务环节跑通，再逐步扩展，是更务实的路径。</p>
-  <div class="notes">最后聊聊 OPC——AI 驱动的业务自动化闭环。哪些行业最适合？知识付费和在线教育排第一——从内容生成、学员答疑到作业批改，几乎全链路都可以 AI 化。电商代运营也是天然适合——商品上下架、客服、数据分析、广告投放，这些都是重复性高且规则明确的工作。自媒体的选题策划和多平台分发也很适合 AI 辅助。软件行业就更不用说了。但有个关键认知：OPC 不是整个公司一键全自动，那不现实。正确的做法是先选一个业务环节跑通，验证效果后再逐步扩展。</div>
-</section>
 
 <!-- ====== SLIDE 45: Section Divider → Ch4 ====== -->
 <section class="slide" data-title="Section: Future">
