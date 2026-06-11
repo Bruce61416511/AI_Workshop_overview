@@ -20,7 +20,7 @@
     <div class="av"></div>
     <div><b>Bruce Lin</b></div>
   </div>
-  <div class="deck-footer"><span class="mono">#AI #LLM #Agent #Ecommerce</span><span class="slide-number" data-current="1" data-total="45"></span></div>
+  <div class="deck-footer"><span class="mono">#AI #LLM #Agent #Ecommerce</span><span class="slide-number" data-current="1" data-total="46"></span></div>
   <div class="notes">大家好！我是 Bruce Lin，欢迎来到今天的分享。今天我们要聊的是一个正在重塑整个世界的技术——人工智能和大语言模型。不管你对 AI 了解多少，今天的目标是让你从 0 到 1 建立一个完整的认知框架。我们会从最基础的概念开始，一路深入到 LLM 的训练原理、Agent 的运作方式，以及我们自己在电商领域的 AI 实战经验。整个过程大概 45 分钟，总共 48 页。好，我们开始。</div>
 </section>
 
@@ -674,22 +674,53 @@
     </div>
   </div>
 
+
+</section>
+
+<!-- ====== SLIDE: Domestic Tools ====== -->
+<section class="slide" data-title="Domestic Tools">
+  <p class="kicker">toolchain · 3/12</p>
+  <h2 class="h2">国产工具的入局</h2>
+  <p class="dim" style="text-align:center;margin-top:4px;font-size:13px">阿里与腾讯的入场——与国际工具（Codex/Claude Code）的差异化优势</p>
+  <div style="display:flex;justify-content:center;gap:28px;margin-top:20px;flex-wrap:wrap">
+    <div class="card card-accent" style="padding:16px 20px;text-align:center;min-width:200px;max-width:280px">
+      <div style="font-size:32px">🧠</div>
+      <div style="font-weight:700;font-size:15px;margin-top:6px">Qoder · 阿里</div>
+      <div class="dim" style="font-size:12px;margin-top:4px;line-height:1.5">本地 IDE Agent<br>对标 Codex CLI / Cursor<br>Spec 驱动开发 · Repo Wiki<br>阿里云 + 通义模型深度整合</div>
+    </div>
+    <div class="card card-accent" style="padding:16px 20px;text-align:center;min-width:200px;max-width:280px">
+      <div style="font-size:32px">☁️</div>
+      <div style="font-weight:700;font-size:15px;margin-top:6px">CodeBuddy · 腾讯</div>
+      <div class="dim" style="font-size:12px;margin-top:4px;line-height:1.5">云端全栈平台<br>对标 Replit / Bolt.new<br>CloudStudio 免环境<br>微信/企微/腾讯云生态闭环</div>
+    </div>
+  </div>
+  <div style="max-width:780px;margin:20px auto 0;padding:12px 16px;border-left:3px solid var(--accent);background:#f8fafc;text-align:left">
+    <p class="dim" style="font-size:12px;line-height:1.7"><strong>vs 国际工具（Codex / Claude Code）：</strong></p>
+    <ul class="dim" style="font-size:12px;line-height:1.7;margin:4px 0 0 16px;padding:0">
+      <li><strong>中文 + 国产生态：</strong>小程序、钉钉、企业微信原生支持——Codex/Claude 做不到</li>
+      <li><strong>合规与数据：</strong>数据不出境，政企客户能过审</li>
+      <li><strong>云服务集成：</strong>Qoder 一键对接阿里云，CodeBuddy 一键对接腾讯云</li>
+      <li><strong>成本优势：</strong>国际工具订阅费用 vs 国产相对低价</li>
+    </ul>
+    <p class="dim" style="font-size:12px;margin-top:8px;line-height:1.6">国际工具强在<strong>模型能力</strong>，国产工具强在<strong>生态闭环</strong>——一个比你会写，一个比你会落地。</p>
+  </div>
+
   <div style="margin-top:12px;text-align:center">
-    <input type="checkbox" id="pain29b" style="display:none">
-    <label for="pain29b" style="display:inline-block;font-size:13px;color:var(--dim);padding:10px 16px;border:1px dashed var(--border);border-radius:8px;cursor:pointer">
+    <input type="checkbox" id="pain31" style="display:none">
+    <label for="pain31" style="display:inline-block;font-size:13px;color:var(--dim);padding:10px 16px;border:1px dashed var(--border);border-radius:8px;cursor:pointer">
       <span style="font-size:16px">💡</span> Vibe Coding
     </label>
-    <div id="pain29b-content" style="display:none;margin-top:10px;max-width:600px;margin-left:auto;margin-right:auto">
+    <div id="pain31-content" style="display:none;margin-top:10px;max-width:600px;margin-left:auto;margin-right:auto">
       <p class="dim" style="font-size:13px;line-height:1.6">零代码的人怎么办？</p>
     </div>
   </div>
-  <style>#pain29b:checked ~ #pain29b-content{display:block!important}</style>
+  <style>#pain31:checked ~ #pain31-content{display:block!important}</style>
 
 </section>
 
 <!-- ====== SLIDE: OpenClaw Intro ====== -->
 <section class="slide" data-title="OpenClaw Intro">
-  <p class="kicker">toolchain · 3/11</p>
+  <p class="kicker">toolchain · 4/12</p>
   <h2 class="h2">OpenClaw — 让普通人也能轻松上手</h2>
   <div style="display:flex;justify-content:center;align-items:center;margin-top:16px">
     <img src="assets/openclaw-intro.png" alt="OpenClaw" style="max-width:80%;max-height:55vh;object-fit:contain">
@@ -701,7 +732,7 @@
 
 <!-- ====== SLIDE: Gateway Architecture (OpenClaw) ====== -->
 <section class="slide" data-title="Gateway Architecture 2">
-  <p class="kicker">toolchain · 4/11</p>
+  <p class="kicker">toolchain · 5/12</p>
   <h2 class="h2">网关架构</h2>
   <div style="display:flex;justify-content:center;align-items:center;margin-top:20px">
     <img src="assets/slide35_img1.png" alt="网关架构" style="max-width:90%;max-height:68vh;object-fit:contain">
@@ -710,7 +741,7 @@
 
 <!-- ====== SLIDE: Security + Open Source (OpenClaw) ====== -->
 <section class="slide" data-title="Security + Open Source 2">
-  <p class="kicker">toolchain · 5/11</p>
+  <p class="kicker">toolchain · 6/12</p>
   <h2 class="h2">安全+开源</h2>
   <div style="display:flex;justify-content:center;align-items:center;margin-top:20px">
     <img src="assets/slide36_img1.png" alt="安全+开源" style="max-width:90%;max-height:68vh;object-fit:contain">
@@ -719,7 +750,7 @@
 
 <!-- ====== SLIDE: Ecosystem (OpenClaw) ====== -->
 <section class="slide" data-title="Ecosystem 2">
-  <p class="kicker">toolchain · 6/11</p>
+  <p class="kicker">toolchain · 7/12</p>
   <h2 class="h2">周边生态</h2>
   <div style="display:flex;justify-content:center;align-items:center;margin-top:20px">
     <img src="assets/slide37_img1.png" alt="周边生态" style="max-width:90%;max-height:68vh;object-fit:contain">
@@ -728,7 +759,7 @@
 
 <!-- ====== SLIDE: OpenClaw Limitations ====== -->
 <section class="slide" data-title="OpenClaw Limitations">
-  <p class="kicker">toolchain · 7/11</p>
+  <p class="kicker">toolchain · 8/12</p>
   <h2 class="h2">OpenClaw 的局限性</h2>
   <div class="grid g2 mt-l" style="max-width:780px;margin:0 auto;gap:16px">
     <div class="card"><h4>🧩 缺乏原生记忆</h4><p class="dim">无法自动积累经验，每次任务从零开始</p></div>
@@ -742,7 +773,7 @@
 
 <!-- ====== SLIDE: Hermes Intro ====== -->
 <section class="slide" data-title="Hermes Intro">
-  <p class="kicker">toolchain · 8/11</p>
+  <p class="kicker">toolchain · 9/12</p>
   <h2 class="h2">Hermes Agent</h2>
   <div style="display:flex;justify-content:center;align-items:center;margin-top:24px">
     <img src="assets/hermes-intro.png" alt="Hermes Agent" style="max-width:85%;max-height:65vh;object-fit:contain">
@@ -751,7 +782,7 @@
 
 <!-- ====== SLIDE: OpenClaw vs Hermes Compare ====== -->
 <section class="slide" data-title="OpenClaw vs Hermes">
-  <p class="kicker">toolchain · 9/11</p>
+  <p class="kicker">toolchain · 10/12</p>
   <h2 class="h2">OpenClaw vs Hermes Agent</h2>
   <p class="dim mt-s" style="text-align:left;font-size:13px">基础功能高度重叠，定时调度、子 Agent 委派、浏览器自动化、20+ 平台消息网关——两者相当。<br>真正的核心差异发生在<strong>任务执行之后</strong>。</p>
   <table class="data-table mt-m">
@@ -767,7 +798,7 @@
 
 <!-- ====== SLIDE: Why Not Replace ====== -->
 <section class="slide" data-title="Why Not Replace">
-  <p class="kicker">toolchain · 10/11</p>
+  <p class="kicker">toolchain · 11/12</p>
   <h2 class="h2">为什么不能互相替代？</h2>
   <table class="data-table mt-l">
     <tr><th>你的需求</th><th>更合适的工具</th></tr>
@@ -783,7 +814,7 @@
   </div>
 </section><!-- SLIDE: Toolchain Summary -->
 <section class="slide" data-title="Toolchain Summary">
-  <p class="kicker">toolchain · 11/11</p>
+  <p class="kicker">toolchain · 12/12</p>
   <h2 class="h2">AI 工具链实战 · 总结</h2>
   <div class="grid g2 mt-l" style="max-width:780px;margin:0 auto;gap:20px">
     <div class="card card-accent">
@@ -824,62 +855,39 @@
 <section class="slide" data-title="Multimodal">
   <p class="kicker">future 1 · multimodal</p>
   <h2 class="h2">进化方向一：多模态</h2>
-  <p class="lede">AI 不再只处理文字，而是同时理解文字、图片、声音、视频。</p>
-  <p class="dim mt-s"><strong>自动驾驶——典型多模态场景：</strong>摄像头 + 雷达 + 激光雷达 + GPS + 车联网。路况瞬息万变、容错为零，必须全模态融合。</p>
-  <table class="data-table mt-m">
-    <tr><th>品牌方案</th><th>技术路线</th><th>核心优势</th></tr>
-    <tr><td>特斯拉 FSD</td><td>纯视觉</td><td>算法强、全球覆盖广</td></tr>
-    <tr><td>华为 ADS</td><td>激光雷达</td><td>雨天夜间强、保守安全</td></tr>
-    <tr><td>小鹏 XNGP</td><td>激光雷达</td><td>城市最流畅、接管最少</td></tr>
-    <tr><td>理想 AD</td><td>多传感器融合</td><td>最平顺、不晕车、家庭友好</td></tr>
-  </table>
-  <p class="dim mt-s">医疗：影像+病历+语音 · 工业：画面+声音+传感器 · 教育：表情+笔迹+发音</p>
-  <div class="notes">未来第一个进化方向是多模态。现在的 AI 大多只能处理文字，但未来的 AI 要像人一样同时处理多种信息。最好的例子就是自动驾驶——一辆车要同时接收摄像头画面、雷达信号、激光雷达点云、GPS 位置、高精地图、语音指令，然后在毫秒级做出决策。这就是多模态的终极场景。国内四大品牌各有路线：特斯拉走纯视觉路线，算法极强但国内路况适配弱；华为走激光雷达路线，安全保守但贵；小鹏的城市自动驾驶体验最流畅；理想侧重家用舒适，最平顺不晕车。医疗、工业、教育也都在多模态方向快速进化。</div>
+  <div style="display:flex;justify-content:center;align-items:center;margin-top:16px">
+    <img src="assets/slide44_img.png" alt="进化方向一：多模态" style="max-width:90%;max-height:65vh;object-fit:contain">
+  </div>
+  <div class="notes">未来第一个进化方向是多模态。现在的 AI 大多只能处理文字，但未来的 AI 要像人一样同时处理多种信息。最好的例子就是自动驾驶——一辆车要同时接收摄像头画面、雷达信号、激光雷达点云、GPS 位置、高精地图、语音指令，然后在毫秒级做出决策。国内四大品牌各有路线：特斯拉走纯视觉路线，算法极强；华为走激光雷达路线，安全保守；小鹏的城市自动驾驶体验最流畅；理想侧重家用舒适。医疗、工业、教育也都在多模态方向快速进化。</div>
 </section>
 
-<!-- ====== SLIDE 47: Edge Deployment ====== -->
 <section class="slide" data-title="Edge Deployment">
   <p class="kicker">future 2 · edge</p>
   <h2 class="h2">进化方向二：端侧部署</h2>
-  <p class="lede">AI 不再依赖云端，在手机、PC、嵌入式设备上本地运行。</p>
-  <div class="grid g3 mt-l" style="max-width:780px;margin:0 auto;gap:16px">
-    <div class="card card-accent"><h4>✂️ 模型剪枝</h4><p class="dim">裁掉贡献小的参数<br>体积缩小 50-90%<br>精度损失小于 2%</p></div>
-    <div class="card card-accent"><h4>⚖️ 量化</h4><p class="dim">FP32 → INT8 / INT4<br>推理提速 2-4 倍<br>内存大幅下降</p></div>
-    <div class="card card-accent"><h4>🔬 蒸馏</h4><p class="dim">大模型教小模型<br>小模型获得大模型<br>90% 以上的能力</p></div>
+  <div style="display:flex;justify-content:center;align-items:center;margin-top:16px">
+    <img src="assets/slide45_img.png" alt="进化方向二：端侧部署" style="max-width:90%;max-height:65vh;object-fit:contain">
   </div>
-  <p class="dim mt-m"><strong>应用场景：</strong>隐私保护 · 毫秒级响应 · 离线可用 · 大小模型混搭（本地小模型 + 云端大模型兜底）</p>
-  <div class="notes">第二个进化方向是端侧部署。为什么要把 AI 放到你的手机和电脑上而不是云端？三个原因：隐私——你的数据不用上传到别人服务器；延迟——本地推理毫秒级响应；离线——没网也能用。技术上有三条路径：剪枝、量化、蒸馏。苹果的 Apple Intelligence 和 Google 的 Gemini Nano 已经在手机上跑本地 AI 了。未来是一个"大小模型混搭"的时代——你的手机上的小模型处理日常任务，遇到复杂问题自动调用云端大模型。</div>
+  <div class="notes">第二个进化方向是端侧部署。为什么要把 AI 放到你的手机和电脑上而不是云端？三个原因：隐私——你的数据不用上传到别人服务器；延迟——本地推理毫秒级响应；离线——没网也能用。技术上有三条路径：剪枝、量化、蒸馏。苹果的 Apple Intelligence 和 Google 的 Gemini Nano 已经在手机上跑本地 AI 了。未来是大小模型混搭的时代。</div>
 </section>
 
-<!-- ====== SLIDE 48: Agent Alliance ====== -->
 <section class="slide" data-title="Agent Alliance">
   <p class="kicker">future 3 · alliance</p>
   <h2 class="h2">进化方向三：智能体联盟</h2>
-  <div class="grid g3 mt-l" style="max-width:780px;margin:0 auto;gap:16px">
-    <div class="card card-accent"><h4>🖥️ 系统层融合</h4><p class="dim">不同操作系统/平台 Agent 互通协作<br>Windows Agent → macOS Agent → Linux Agent</p></div>
-    <div class="card card-accent"><h4>🏢 企业层融合</h4><p class="dim">不同企业/组织的 Agent 跨边界协作<br>品牌方 Agent → 物流 Agent → 平台 Agent</p></div>
+  <div style="display:flex;justify-content:center;align-items:center;margin-top:16px">
+    <img src="assets/slide46_img.png" alt="进化方向三：智能体联盟" style="max-width:90%;max-height:65vh;object-fit:contain">
   </div>
-  <p class="lede mt-l"><strong>终极愿景：</strong>生产 Agent、物流 Agent、销售 Agent、售后 Agent 自动串联整条产业链，像人类供应链一样分工协作。</p>
-  <p class="dim mt-s">需要标准化 Agent 之间的通信协议——就像人类公司之间用 EDI 交换订单一样。</p>
-  <div class="notes">第三个方向是智能体联盟。现在的 Agent 大多是孤立的——你的 Agent 只管你的业务。但未来不同企业的 Agent 应该能自动协作。比如你是品牌方，你的订单 Agent 发现了爆款趋势，自动通知工厂的生产 Agent 加产，生产 Agent 完成后自动通知物流 Agent 发货，物流 Agent 到了自动通知你的销售 Agent 上架。全链路不需要人插手。这需要标准化 Agent 之间的通信协议——就像人类公司之间用 EDI 交换订单一样，Agent 之间需要一个类似的"Agent 间通信协议"。这是未来三到五年的重点方向。</div>
+  <div class="notes">第三个方向是智能体联盟。现在的 Agent 大多是孤立的。但未来不同企业的 Agent 应该能自动协作——订单 Agent 发现爆款，自动通知生产 Agent 加产，生产完成后通知物流 Agent 发货，到了自动通知销售 Agent 上架。全链路不需要人插手。这需要标准化 Agent 之间的通信协议，是未来三到五年的重点方向。</div>
 </section>
 
-<!-- ====== SLIDE 49: Vertical Industries ====== -->
 <section class="slide" data-title="Vertical Industries">
   <p class="kicker">future 4 · vertical</p>
   <h2 class="h2">进化方向四：垂直产业的深耕</h2>
-  <table class="data-table mt-l">
-    <tr><th>行业</th><th>AI 应用方向</th><th>成熟度</th><th>关键壁垒</th></tr>
-    <tr><td>电商</td><td>智能客服、选品分析、自动运营</td><td>★★★★</td><td>商品知识图谱</td></tr>
-    <tr><td>制造</td><td>质检、预测性维护、供应链优化</td><td>★★★</td><td>产线数据积累</td></tr>
-    <tr><td>金融</td><td>风控、投研、合规审查、智能投顾</td><td>★★★★</td><td>监管合规</td></tr>
-    <tr><td>医疗</td><td>辅助诊断、药物研发、病历管理</td><td>★★★</td><td>临床验证</td></tr>
-    <tr><td>法律</td><td>合同审查、案例检索、文书生成</td><td>★★</td><td>法律准确性要求极高</td></tr>
-    <tr><td>教育</td><td>个性化学习、自动批改、智能辅导</td><td>★★★</td><td>教育效果评估</td></tr>
-  </table>
-  <p class="lede mt-m"><strong>核心趋势：</strong>通用大模型是底座，行业 Know-how 加私有数据才是真正的壁垒。未来不是"AI 替代行业"，而是"行业 AI 化"。</p>
-  <div class="notes">最后一个方向是垂直产业的深耕。通用大模型虽然厉害，但它不懂你的行业。就像 GPT-4 能写文章但不知道镀铝锌钢板的出口流程。行业 AI 需要的是"通用能力 + 行业知识"。电商、金融已经走在前面，法律和教育的门槛更高但潜力巨大。未来的竞争不在模型本身，而在谁拥有更深的行业理解和更多的私有数据。通用大模型是底座，行业 Know-how 才是壁垒。</div>
+  <div style="display:flex;justify-content:center;align-items:center;margin-top:16px">
+    <img src="assets/slide47_img.png" alt="进化方向四：垂直产业的深耕" style="max-width:90%;max-height:65vh;object-fit:contain">
+  </div>
+  <div class="notes">最后一个方向是垂直产业的深耕。通用大模型虽然厉害，但它不懂你的行业。行业 AI 需要的是通用能力加行业知识。电商、金融已经走在前面，法律和教育的门槛更高但潜力巨大。未来的竞争不在模型本身，而在谁拥有更深的行业理解和更多的私有数据。通用大模型是底座，行业 Know-how 才是壁垒。</div>
 </section>
+
 
 <!-- ====== SLIDE 50: Q&A / Thanks ====== -->
 <section class="slide center tc" data-title="Q and A">
@@ -912,4 +920,10 @@
 
 
 
+
+
+
+
+
+
 
