@@ -1,4 +1,4 @@
-﻿﻿﻿﻿/* corporate-clean — scoped for ai-llm-talk deck */
+﻿﻿﻿/* corporate-clean — scoped for ai-llm-talk deck */
 .tpl-corporate-clean {
   --bg: #ffffff;
   --bg-soft: #f5f7fa;
@@ -203,7 +203,7 @@
   color: var(--text-1);
   font-size: 22px;
   flex: 1;
-  font-weight: 600;
+  font-weight: 400;
 }
 .tpl-corporate-clean .agenda-row .d {
   color: var(--text-3);
